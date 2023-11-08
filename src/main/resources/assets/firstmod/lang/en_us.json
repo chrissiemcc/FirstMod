@@ -2,5 +2,8 @@
   "item.firstmod.sapphire": "Sapphire",
   "item.firstmod.raw_sapphire": "Raw Sapphire",
 
+  "block.firstmod.sapphire_block": "Block of Sapphire",
+  "block.firstmod.raw_sapphire_block": "Block of Raw Sapphire",
+
   "creativetab.first_tab": "Sapphire First Tab"
 }

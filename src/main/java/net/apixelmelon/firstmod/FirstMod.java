@@ -1,6 +1,7 @@
 package net.apixelmelon.firstmod;
 
 import com.mojang.logging.LogUtils;
+import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -34,6 +35,7 @@ public class FirstMod
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -50,7 +52,7 @@ public class FirstMod
 
     }
 
-    // Add the example block item to the building blocks tab
+    // Add the items to the ingredients tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
