@@ -1,6 +1,7 @@
 package net.apixelmelon.firstmod.block;
 
 import net.apixelmelon.firstmod.FirstMod;
+import net.apixelmelon.firstmod.block.custom.SoundBlock;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -18,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+    // Registers the blocks to the game
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, FirstMod.MOD_ID);
 
@@ -38,6 +40,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> END_STONE_SAPPHIRE_ORE = registerBlock("end_stone_sapphire_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(5, 7)));
+
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     // UniformInt.of means how many experience orbs will drop
 
