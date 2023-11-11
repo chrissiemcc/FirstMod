@@ -18,7 +18,7 @@
 
   "block.firstmod.sound_block": "Sound Block",
 
-  "tooltop.firstmod.metal_detector.tooltip": "Finds valuables underground!",
+  "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "creativetab.first_tab": "Sapphire First Tab"
 }
