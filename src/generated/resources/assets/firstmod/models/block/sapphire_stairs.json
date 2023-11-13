@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "firstmod:block/sapphire_block",
+    "side": "firstmod:block/sapphire_block",
+    "top": "firstmod:block/sapphire_block"
+  }
+}

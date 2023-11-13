@@ -18,6 +18,16 @@
 
   "block.firstmod.sound_block": "Sound Block",
 
+  "block.firstmod.sapphire_stairs": "Sapphire Stairs",
+  "block.firstmod.sapphire_slab": "Sapphire Slab",
+  "block.firstmod.sapphire_button": "Sapphire Button",
+  "block.firstmod.sapphire_pressure_plate": "Sapphire Pressure Plate",
+  "block.firstmod.sapphire_fence": "Sapphire Fence",
+  "block.firstmod.sapphire_fence_gate": "Sapphire Fence Gate",
+  "block.firstmod.sapphire_wall": "Sapphire Wall",
+  "block.firstmod.sapphire_door": "Sapphire Door",
+  "block.firstmod.sapphire_trapdoor": "Sapphire Trapdoor",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "creativetab.first_tab": "Sapphire First Tab"
