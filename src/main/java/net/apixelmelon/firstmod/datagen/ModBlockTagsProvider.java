@@ -47,6 +47,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
         //Adds the blocks as being mineable with specific levels of pickaxe or above
 
+        this.tag(ModTags.Blocks.NEEDS_SAPPHIRE_TOOL)
+                .add(ModBlocks.SOUND_BLOCK.get());
+        //Sound Block can only be mined by Sapphire Tools
+
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.SAPPHIRE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES)
