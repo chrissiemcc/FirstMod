@@ -7,13 +7,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -30,7 +27,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.STRAWBERRY);
 
         simpleBlockItem(ModBlocks.SAPPHIRE_DOOR);
-
         simpleBlockItem(ModBlocks.SAPPHIRE_STAIRS);
         simpleBlockItem(ModBlocks.SAPPHIRE_SLAB);
         simpleBlockItem(ModBlocks.SAPPHIRE_PRESSURE_PLATE);
@@ -43,8 +39,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         trapdoorItem(ModBlocks.SAPPHIRE_TRAPDOOR);
     }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void simpleItem(RegistryObject<Item> item) {
+        this.withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(FirstMod.MOD_ID, "item/" + item.getId().getPath()));
     }//Generates item model
@@ -69,15 +65,15 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .texture("wall", new ResourceLocation(FirstMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
-    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> block) {
+    private void simpleBlockItem(RegistryObject<Block> block) {
         try {
-            return withExistingParent(block.getId().getPath(),
+            this.withExistingParent(block.getId().getPath(),
                     new ResourceLocation("item/generated")).texture("layer0",
                     new ResourceLocation(FirstMod.MOD_ID, "item/" + block.getId().getPath()));
         }
-        catch(Exception e) {
-            return withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+        catch(IllegalArgumentException e) {
+            this.withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                     modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
-        }
+        }//For stairs, slab, pressure plate and fence gate that require a different .json file
     }
 }
