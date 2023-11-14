@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.block;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.custom.SoundBlock;
+import net.apixelmelon.firstmod.block.custom.StrawberryCropBlock;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -69,6 +70,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SAPPHIRE_TRAPDOOR = registerBlock("sapphire_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
     //.noOcclusion() prevents x-ray effect with doors transparent pixels
+
+    public static final RegistryObject<Block> STRAWBERRY_CROP = BLOCKS.register("strawberry_crop",
+            () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

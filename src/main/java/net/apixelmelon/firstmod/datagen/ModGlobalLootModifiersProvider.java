@@ -33,6 +33,6 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
         this.add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()}, ModItems.METAL_DETECTOR.get()));
-        //100% chance for jungle temple chests to have a metal detector
+        //Adds metal detectors to the suspicious sand loot table
     }
 }
