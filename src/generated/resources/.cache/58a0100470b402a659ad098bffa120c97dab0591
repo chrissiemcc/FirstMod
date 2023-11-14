@@ -1,5 +1,6 @@
-// 1.20.1	2023-11-14T19:10:09.0141722	Global Loot Modifiers : firstmod
+// 1.20.1	2023-11-14T19:26:21.6834483	Global Loot Modifiers : firstmod
 966a58d28524858bb396ed8c62bb23cf0d5f9c5d data/firstmod/loot_modifiers/metal_detector_from_jungle_temples.json
+49f3c970c4125238724e52cc1d7f79b5cab9b921 data/firstmod/loot_modifiers/metal_detector_from_suspicious_sand.json
 3bbcb385d8344d52c7aeff59e8b7110a0b707f70 data/firstmod/loot_modifiers/pine_cone_from_creeper.json
 7363f033983668200491ae3cc6ada3f12a2199e8 data/firstmod/loot_modifiers/pine_cone_from_grass.json
-bef437c313677fa37d8fccc9098fb03fc4bf487b data/forge/loot_modifiers/global_loot_modifiers.json
+9521e9e00ac6f3376308a757f1350097c87f5706 data/forge/loot_modifiers/global_loot_modifiers.json

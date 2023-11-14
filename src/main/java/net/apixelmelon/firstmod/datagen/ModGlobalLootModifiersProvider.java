@@ -3,6 +3,7 @@ package net.apixelmelon.firstmod.datagen;
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.AddItemModifier;
+import net.apixelmelon.firstmod.loot.AddSusSandItemModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -28,6 +29,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         //100% chance for creepers to drop a pine cone
         this.add("metal_detector_from_jungle_temples", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build()}, ModItems.METAL_DETECTOR.get()));
+        //100% chance for jungle temple chests to have a metal detector
+
+        this.add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[]{
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()}, ModItems.METAL_DETECTOR.get()));
         //100% chance for jungle temple chests to have a metal detector
     }
 }
