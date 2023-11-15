@@ -1,6 +1,7 @@
 package net.apixelmelon.firstmod.block;
 
 import net.apixelmelon.firstmod.FirstMod;
+import net.apixelmelon.firstmod.block.custom.CornCropBlock;
 import net.apixelmelon.firstmod.block.custom.SoundBlock;
 import net.apixelmelon.firstmod.block.custom.StrawberryCropBlock;
 import net.apixelmelon.firstmod.item.ModItems;
@@ -73,6 +74,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> STRAWBERRY_CROP = BLOCKS.register("strawberry_crop",
             () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+    public static final RegistryObject<Block> CORN_CROP = BLOCKS.register("corn_crop",
+            () -> new CornCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
