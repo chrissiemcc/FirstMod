@@ -57,21 +57,28 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createDoorTable(ModBlocks.SAPPHIRE_DOOR.get()));
         //as 2 slabs can form a full block and a door is 2 blocks, they need a little extra code to ensure they drop themselves
 
-        LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
+        LootItemCondition.Builder strawberrylootitemconditionbuilder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.STRAWBERRY_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 5));
         this.add(ModBlocks.STRAWBERRY_CROP.get(), createCropDrops(ModBlocks.STRAWBERRY_CROP.get(), ModItems.STRAWBERRY.get(),
-                ModItems.STRAWBERRY_SEEDS.get(), lootitemcondition$builder));
+                ModItems.STRAWBERRY_SEEDS.get(), strawberrylootitemconditionbuilder));
 
-        LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition
+        LootItemCondition.Builder cornlootitemconditionbuilder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.CORN_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 7))
                 .or(LootItemBlockStatePropertyCondition
                         .hasBlockStateProperties(ModBlocks.CORN_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 8)));
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 8)));//drop crop from both blocks
+
+        //LootItemCondition.Builder cornlootitemconditionbuilder = LootItemBlockStatePropertyCondition
+        //        .hasBlockStateProperties(ModBlocks.CORN_CROP.get())
+        //        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 8));//only drop crop from top block
 
         this.add(ModBlocks.CORN_CROP.get(), createCropDrops(ModBlocks.CORN_CROP.get(), ModItems.CORN.get(),
-                ModItems.CORN_SEEDS.get(), lootitemcondition$builder2));
+                ModItems.CORN_SEEDS.get(), cornlootitemconditionbuilder));
+
+        this.dropSelf(ModBlocks.CATMINT.get());
+        this.add(ModBlocks.POTTED_CATMINT.get(), createPotFlowerItemTable(ModBlocks.CATMINT.get()));
     }
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {

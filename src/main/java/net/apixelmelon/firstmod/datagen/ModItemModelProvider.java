@@ -73,6 +73,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.SAPPHIRE_CHESTPLATE);
         trimmedArmorItem(ModItems.SAPPHIRE_LEGGINGS);
         trimmedArmorItem(ModItems.SAPPHIRE_BOOTS);
+
+        simpleBlockItemBlockTexture(ModBlocks.CATMINT);
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
@@ -164,5 +166,11 @@ public class ModItemModelProvider extends ItemModelProvider {
             this.withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                     modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
         }//For stairs, slab, pressure plate and fence gate that require a different .json file
+    }
+
+    private void simpleBlockItemBlockTexture(RegistryObject<Block> block) {
+        this.withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(FirstMod.MOD_ID, "block/" + block.getId().getPath()));
     }
 }

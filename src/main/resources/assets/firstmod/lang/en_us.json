@@ -43,6 +43,8 @@
   "block.firstmod.sapphire_door": "Sapphire Door",
   "block.firstmod.sapphire_trapdoor": "Sapphire Trapdoor",
 
+  "block.firstmod.catmint": "Catmint",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "creativetab.first_tab": "Sapphire First Tab"
