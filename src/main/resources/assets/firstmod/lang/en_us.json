@@ -47,5 +47,7 @@
 
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
+  "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
+
   "creativetab.first_tab": "Sapphire First Tab"
 }
