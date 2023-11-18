@@ -5,6 +5,7 @@ import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
+import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.villager.ModVillagers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -42,6 +43,8 @@ public class FirstMod
 
         ModLootModifiers.register(modEventBus);
         ModVillagers.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

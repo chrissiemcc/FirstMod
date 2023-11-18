@@ -49,5 +49,7 @@
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
 
+  "sounds.firstmod.metal_detector_found_ore": "Metal Detector Jingle",
+
   "creativetab.first_tab": "Sapphire First Tab"
 }
