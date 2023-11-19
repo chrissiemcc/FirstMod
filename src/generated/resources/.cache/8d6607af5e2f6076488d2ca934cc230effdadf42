@@ -1,2 +1,4 @@
-// 1.20.1	2023-11-13T22:23:17.3258502	Tags for minecraft:item mod id firstmod
+// 1.20.1	2023-11-19T20:48:22.190852	Tags for minecraft:item mod id firstmod
+ad73121cd687248d304eb80b068af1c82710e3aa data/minecraft/tags/items/creeper_drop_music_discs.json
+ad73121cd687248d304eb80b068af1c82710e3aa data/minecraft/tags/items/music_discs.json
 9823522ce60bd02b1fc6796216132fb57b0cbf76 data/minecraft/tags/items/trimmable_armor.json
