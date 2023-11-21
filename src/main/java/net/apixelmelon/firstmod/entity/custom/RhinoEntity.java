@@ -23,7 +23,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class RhinoEntity extends Animal {
@@ -58,10 +57,10 @@ public class RhinoEntity extends Animal {
         }
 
         if(this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 80; // Length in ticks of the animation
+            attackAnimationTimeout = 80; // Length in ticks of your animation
             attackAnimationState.start(this.tickCount);
         } else {
-            --this.idleAnimationTimeout;
+            --this.attackAnimationTimeout;
         }
 
         if(!this.isAttacking()) {
@@ -73,7 +72,7 @@ public class RhinoEntity extends Animal {
     protected void updateWalkAnimation(float pPartialTick) {
         float f;
         if(this.getPose() == Pose.STANDING) {
-            f = Math.min(pPartialTick * 6f, 1f);
+            f = Math.min(pPartialTick * 6F, 1f);
         } else {
             f = 0f;
         }
@@ -125,7 +124,7 @@ public class RhinoEntity extends Animal {
 
     @Nullable
     @Override
-    public AgeableMob getBreedOffspring(@NotNull ServerLevel pLevel, @NotNull AgeableMob pOtherParent) {
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return ModEntities.RHINO.get().create(pLevel);
     }
 
