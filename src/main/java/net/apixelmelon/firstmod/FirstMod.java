@@ -2,12 +2,15 @@ package net.apixelmelon.firstmod;
 
 import com.mojang.logging.LogUtils;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.entity.ModEntities;
+import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.villager.ModVillagers;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -45,6 +48,7 @@ public class FirstMod
         ModVillagers.register(modEventBus);
 
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -86,7 +90,7 @@ public class FirstMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         }
     }
 }
