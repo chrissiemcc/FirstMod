@@ -48,6 +48,8 @@
 
   "block.firstmod.catmint": "Catmint",
 
+  "block.firstmod.gem_polishing_station": "Gem Polishing Station",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",

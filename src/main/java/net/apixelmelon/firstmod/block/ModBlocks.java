@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.block;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.custom.CornCropBlock;
+import net.apixelmelon.firstmod.block.custom.GemPolishingStationBlock;
 import net.apixelmelon.firstmod.block.custom.SoundBlock;
 import net.apixelmelon.firstmod.block.custom.StrawberryCropBlock;
 import net.apixelmelon.firstmod.item.ModItems;
@@ -86,6 +87,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_CATMINT = BLOCKS.register("potted_catmint",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.CATMINT,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
+
+    public static final RegistryObject<Block> GEM_POLISHING_STATION = registerBlock("gem_polishing_station",
+            () -> new GemPolishingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

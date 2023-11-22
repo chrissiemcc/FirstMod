@@ -2,14 +2,18 @@ package net.apixelmelon.firstmod;
 
 import com.mojang.logging.LogUtils;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.block.entity.ModBlockEntities;
 import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
+import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
+import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.villager.ModVillagers;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -49,6 +53,9 @@ public class FirstMod
 
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -91,6 +98,8 @@ public class FirstMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+
+            MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
         }
     }
 }

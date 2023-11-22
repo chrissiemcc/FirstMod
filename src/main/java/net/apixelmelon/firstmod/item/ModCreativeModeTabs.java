@@ -73,6 +73,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.SAPPHIRE_TRAPDOOR.get());
 
                         pOutput.accept(ModBlocks.CATMINT.get());
+
+                        pOutput.accept(ModBlocks.GEM_POLISHING_STATION.get());
                     }))
                     .build());
 
