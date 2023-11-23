@@ -8,6 +8,7 @@ import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
+import net.apixelmelon.firstmod.recipe.ModRecipes;
 import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
 import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
@@ -56,6 +57,8 @@ public class FirstMod
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
