@@ -1,11 +1,13 @@
-// 1.20.1	2023-11-13T17:15:20.8051187	Tags for minecraft:block mod id firstmod
+// 1.20.1	2023-11-23T17:18:30.0224453	Tags for minecraft:block mod id firstmod
 3fde80c37aa17ba86d1f04cded3d5d1213c1e0ce data/firstmod/tags/blocks/metal_detector_valuables.json
 a5c425b82d8520f7c14430bb1660baf3479db30a data/firstmod/tags/blocks/needs_sapphire_tool.json
 ab4b7a97ed75813c718303a31d2a9d4c1f01cddf data/forge/tags/blocks/needs_netherite_tool.json
 72b3fec899e11d59e0a58abfe3fadbc5cae33777 data/minecraft/tags/blocks/fences.json
 d521bb0a982fd86cd58b8a469f46dec67e6fb77e data/minecraft/tags/blocks/fence_gates.json
+5c673c41f63128f01ad3cc8c251aa9ff3135ff21 data/minecraft/tags/blocks/logs_that_burn.json
 a16090db178058a9bc8b09097dc8704a01d76baa data/minecraft/tags/blocks/mineable/pickaxe.json
 9192819a3b67f9108f90f6de996decb2309d682c data/minecraft/tags/blocks/needs_diamond_tool.json
 2ff4b9673585206e2a4a554c97ac67d52dd73e4a data/minecraft/tags/blocks/needs_iron_tool.json
 3efc9a933cc50c6201cc1e9764a4204b3c021b3d data/minecraft/tags/blocks/needs_stone_tool.json
+85665dd906eebe1c6dab36a9a954d047f7fd0014 data/minecraft/tags/blocks/planks.json
 54ee162efacb18942027729a57759bf67d9dfa9c data/minecraft/tags/blocks/walls.json

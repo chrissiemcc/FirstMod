@@ -50,6 +50,13 @@
 
   "block.firstmod.gem_polishing_station": "Gem Polishing Station",
 
+  "block.firstmod.pine_log": "Pine Log",
+  "block.firstmod.pine_planks": "Pine Planks",
+  "block.firstmod.pine_wood": "Pine Wood",
+  "block.firstmod.pine_leaves": "Pine Leaves",
+  "block.firstmod.stripped_pine_log": "Stripped Pine Log",
+  "block.firstmod.stripped_pine_wood": "Stripped Pine Wood",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
