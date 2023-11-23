@@ -1,6 +1,5 @@
 package net.apixelmelon.firstmod.block.entity;
 
-import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.recipe.GemPolishingRecipe;
 import net.apixelmelon.firstmod.screen.GemPolishingStationMenu;
 import net.minecraft.core.BlockPos;
@@ -142,7 +141,9 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     }
 
     private void craftItem() {
-        ItemStack result = new ItemStack(ModItems.SAPPHIRE.get(), 1);
+        Optional<GemPolishingRecipe> recipe = getCurrentRecipe();
+        ItemStack result = recipe.get().getResultItem(null);
+
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
