@@ -57,6 +57,9 @@
   "block.firstmod.stripped_pine_log": "Stripped Pine Log",
   "block.firstmod.stripped_pine_wood": "Stripped Pine Wood",
 
+  "block.firstmod.pine_sign": "Pine Sign",
+  "block.firstmod.pine_hanging_sign": "Pine Hanging Sign",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
