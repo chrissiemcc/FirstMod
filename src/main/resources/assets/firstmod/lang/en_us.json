@@ -26,6 +26,9 @@
   "item.firstmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.firstmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CCO)",
 
+  "item.firstmod.pine_boat": "Pine Boat",
+  "item.firstmod.pine_chest_boat": "Pine Chest Boat",
+
   "block.firstmod.sapphire_block": "Block of Sapphire",
   "block.firstmod.raw_sapphire_block": "Block of Raw Sapphire",
 
@@ -63,6 +66,7 @@
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
+  "entity.firstmod.mod_chest_boat": "Boat with Chest",
 
   "sounds.firstmod.metal_detector_found_ore": "Metal Detector Jingle",
 

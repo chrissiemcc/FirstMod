@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.block.entity.ModBlockEntities;
 import net.apixelmelon.firstmod.entity.ModEntities;
+import net.apixelmelon.firstmod.entity.client.ModBoatRenderer;
 import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItems;
@@ -105,6 +106,8 @@ public class FirstMod
             Sheets.addWoodType(ModWoodTypes.PINE);
 
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+            EntityRenderers.register(ModEntities.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), pContext -> new ModBoatRenderer(pContext, true));
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
         }

@@ -1,9 +1,11 @@
-// 1.20.1	2023-11-27T20:29:46.1745213	Item Models: firstmod
+// 1.20.1	2023-11-28T23:53:38.2296626	Item Models: firstmod
 1683a99891f1abafd5bf4ed18bad6d6877d66ff8 assets/firstmod/models/item/bar_brawl_music_disc.json
 84181406db063f27bbcaa1a409b7265a5090c383 assets/firstmod/models/item/catmint.json
 738da0b40465accd1ec5f7141c979046af3bba39 assets/firstmod/models/item/corn.json
 105a6cc9ec4a04de8317a51b95831493ba55ff6a assets/firstmod/models/item/corn_seeds.json
 a5c6beb02f2061c7268ebf538620042bbf255697 assets/firstmod/models/item/metal_detector.json
+2fa59e42e9b6677520f4385d7c8896fd2656c90a assets/firstmod/models/item/pine_boat.json
+66e0a89eb94587a731164d81a77466d675b364d5 assets/firstmod/models/item/pine_chest_boat.json
 b7ab366b11eb92c982a6049fc2a2d1a8fb994461 assets/firstmod/models/item/pine_cone.json
 795c30f1dea2c74ee51b4d23e23f04ecf8ffdcb9 assets/firstmod/models/item/pine_hanging_sign.json
 24a3785b3948691d2974ed085c70c4f37e43d50a assets/firstmod/models/item/pine_sign.json
