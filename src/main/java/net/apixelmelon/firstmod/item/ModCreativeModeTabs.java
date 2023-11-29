@@ -56,6 +56,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PINE_BOAT.get());
                         pOutput.accept(ModItems.PINE_CHEST_BOAT.get());
 
+                        pOutput.accept(ModItems.DICE.get());
+
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
 
