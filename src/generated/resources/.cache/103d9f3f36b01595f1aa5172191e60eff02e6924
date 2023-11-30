@@ -1,11 +1,13 @@
-// 1.20.1	2023-11-30T20:25:59.7181212	Registries
+// 1.20.1	2023-11-30T20:55:21.5687511	Registries
 6fdb2de23fcc976d66f18ba6e1b4067842fe86d0 data/firstmod/forge/biome_modifier/add_end_sapphire_ore.json
 00d66c6c33dc22dab66903bd86e3516e5766267a data/firstmod/forge/biome_modifier/add_nether_sapphire_ore.json
 29e6a468690adf3a927b700ef35679ad2fe60b74 data/firstmod/forge/biome_modifier/add_sapphire_ore.json
+225ac0abdc691c9f0741292643e4669f4ecf5006 data/firstmod/forge/biome_modifier/add_tree_pine.json
 84e6d59cf3cd46def42b1adeffd59ecdc5b795eb data/firstmod/worldgen/configured_feature/end_sapphire_ore.json
 618a7a8ac1fc2e3892d739404a5bb98064ab82db data/firstmod/worldgen/configured_feature/nether_sapphire_ore.json
 40e7517e160ebfbeeb120fa161cee4157e8e5c5b data/firstmod/worldgen/configured_feature/pine.json
 81647a5414a11ace9a6aa5cafcb8a243485d8eef data/firstmod/worldgen/configured_feature/sapphire_ore.json
 d6879ead52451fc18622d3d7c48c020f7e5944ba data/firstmod/worldgen/placed_feature/end_sapphire_ore_placed.json
 957a6ef15aff1c0eae74fa04bfa172bdc6ba1a59 data/firstmod/worldgen/placed_feature/nether_sapphire_ore_placed.json
+235b49a1535b81da72b490d27974610f6b36484d data/firstmod/worldgen/placed_feature/pine_placed.json
 1e5344d060f34e6449a0463fcd4ccb1f1c08bc7c data/firstmod/worldgen/placed_feature/sapphire_ore_placed.json
