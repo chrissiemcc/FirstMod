@@ -65,6 +65,8 @@
   "block.firstmod.pine_sign": "Pine Sign",
   "block.firstmod.pine_hanging_sign": "Pine Hanging Sign",
 
+  "block.firstmod.pine_sapling": "Pine Sapling",
+
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
