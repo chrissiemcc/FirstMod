@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.worldgen;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.worldgen.tree.custom.PineTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -17,7 +18,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
@@ -50,7 +50,7 @@ public class ModConfiguredFeatures {
 
         register(context, PINE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.PINE_LOG.get()),
-                new StraightTrunkPlacer(5, 4, 3), //determines the trunk of the tree
+                new PineTrunkPlacer(5, 4, 3), //determines the trunk of the tree
 
                 BlockStateProvider.simple(ModBlocks.PINE_LEAVES.get()),
                 new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3), //determines the foliage of the tree

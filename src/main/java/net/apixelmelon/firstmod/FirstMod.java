@@ -15,7 +15,7 @@ import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.util.ModWoodTypes;
 import net.apixelmelon.firstmod.villager.ModVillagers;
-import net.minecraft.client.Minecraft;
+import net.apixelmelon.firstmod.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -33,7 +33,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -63,6 +62,7 @@ public class FirstMod
         ModMenuTypes.register(modEventBus);
 
         ModRecipes.register(modEventBus);
+        ModTrunkPlacerTypes.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
