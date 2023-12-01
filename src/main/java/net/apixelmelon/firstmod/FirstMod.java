@@ -15,6 +15,7 @@ import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.util.ModWoodTypes;
 import net.apixelmelon.firstmod.villager.ModVillagers;
+import net.apixelmelon.firstmod.worldgen.tree.ModFoliagePlacers;
 import net.apixelmelon.firstmod.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
@@ -62,7 +63,9 @@ public class FirstMod
         ModMenuTypes.register(modEventBus);
 
         ModRecipes.register(modEventBus);
+
         ModTrunkPlacerTypes.register(modEventBus);
+        ModFoliagePlacers.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

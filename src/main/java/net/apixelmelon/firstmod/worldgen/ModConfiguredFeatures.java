@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.worldgen;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.worldgen.tree.custom.PineFoliagePlacer;
 import net.apixelmelon.firstmod.worldgen.tree.custom.PineTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -53,7 +54,7 @@ public class ModConfiguredFeatures {
                 new PineTrunkPlacer(5, 4, 3), //determines the trunk of the tree
 
                 BlockStateProvider.simple(ModBlocks.PINE_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3), //determines the foliage of the tree
+                new PineFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3), //determines the foliage of the tree
 
                 new TwoLayersFeatureSize(1, 0, 2)).build()); //checks the space around the feature being placed (tree)
     }
