@@ -1,9 +1,10 @@
-// 1.20.1	2023-11-30T20:25:59.7211125	Block States: firstmod
+// 1.20.1	2023-12-02T21:21:07.4333354	Block States: firstmod
 53191b287513710258b66a6deffbe849a9e84c65 assets/firstmod/blockstates/catmint.json
 bab8b68f4ceab039c59a4f247eda4f53f54bb999 assets/firstmod/blockstates/corn_crop.json
 f73329699d7a47769ad2a693fc28a0cc2edf622e assets/firstmod/blockstates/deepslate_sapphire_ore.json
 b621600179a42440356bd27ba319e44b8f37218f assets/firstmod/blockstates/end_stone_sapphire_ore.json
 fd66b2876ad8fc655800f8e45365bfeb550a4414 assets/firstmod/blockstates/gem_polishing_station.json
+042a7b6d3c64803f0815b3b04afd95e46648ec1c assets/firstmod/blockstates/mod_portal.json
 e248d04c4618f2c971482078ed85a3b0d44fe889 assets/firstmod/blockstates/nether_sapphire_ore.json
 c179d1484ec647df4e88a637827b85df40e851d6 assets/firstmod/blockstates/pine_hanging_sign.json
 278fa39bf9cee6ba712cd0fa13909d667aa04914 assets/firstmod/blockstates/pine_leaves.json
@@ -43,6 +44,7 @@ d16758aa80ac2174232aae61ed80744263a864c8 assets/firstmod/models/block/corn_stage
 30e8fc4ff5b0d8cf559cb0f06c4efb7b37dfbcee assets/firstmod/models/block/corn_stage_8.json
 551bed9c196a7065099bbb33fe43c96b14edbf8f assets/firstmod/models/block/deepslate_sapphire_ore.json
 4331676344eae0c78ee907b0d3b619bc8b8bb96e assets/firstmod/models/block/end_stone_sapphire_ore.json
+a6dcbe2f35e8a38836d3e64f2073d807907e0327 assets/firstmod/models/block/mod_portal.json
 3ed915ba1bc1596e50706cf0be660eacb82df9bd assets/firstmod/models/block/nether_sapphire_ore.json
 aaeac4821808d1842c818300bf5d0318418e31e6 assets/firstmod/models/block/pine_hanging_sign.json
 00493d55178174508ae0fb0290b56e9641eae715 assets/firstmod/models/block/pine_leaves.json
@@ -101,6 +103,7 @@ e6ac554df5c968bb8c66db064a080e2a8386db87 assets/firstmod/models/block/stripped_p
 b4fcd7d2cde4944b3ba8d3a1d2661f08021669b9 assets/firstmod/models/item/deepslate_sapphire_ore.json
 de8604e552951171205f849f691b7bced5fff461 assets/firstmod/models/item/end_stone_sapphire_ore.json
 d378ec26947fa2ed3abec5e3fc8e60b6182656bd assets/firstmod/models/item/gem_polishing_station.json
+28bcfc85354f052d4fea04800cef91022c5b892a assets/firstmod/models/item/mod_portal.json
 d19610728ca2c92367175774d05689e130617f94 assets/firstmod/models/item/nether_sapphire_ore.json
 c6a4f6a95e1efb33020163e35233a37afe1200f7 assets/firstmod/models/item/pine_leaves.json
 1d1ac4ef546f07da42632bd2a3965d4bad193872 assets/firstmod/models/item/pine_log.json

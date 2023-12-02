@@ -1,4 +1,6 @@
-// 1.20.1	2023-12-02T20:21:37.8799047	Registries
+// 1.20.1	2023-12-02T21:21:07.4323389	Registries
+70e595343c957235fbe2ea350f15a0d089df47af data/firstmod/dimension/pixeldim.json
+e241e971aacde6f4d0236c622c99d6c9caeb981e data/firstmod/dimension_type/pixeldim_type.json
 6fdb2de23fcc976d66f18ba6e1b4067842fe86d0 data/firstmod/forge/biome_modifier/add_end_sapphire_ore.json
 00d66c6c33dc22dab66903bd86e3516e5766267a data/firstmod/forge/biome_modifier/add_nether_sapphire_ore.json
 29e6a468690adf3a927b700ef35679ad2fe60b74 data/firstmod/forge/biome_modifier/add_sapphire_ore.json
