@@ -15,6 +15,8 @@ import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.util.ModWoodTypes;
 import net.apixelmelon.firstmod.villager.ModVillagers;
+import net.apixelmelon.firstmod.worldgen.biome.ModTerrablender;
+import net.apixelmelon.firstmod.worldgen.biome.surface.ModSurfaceRules;
 import net.apixelmelon.firstmod.worldgen.tree.ModFoliagePlacers;
 import net.apixelmelon.firstmod.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -35,6 +37,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FirstMod.MOD_ID)
@@ -67,6 +70,8 @@ public class FirstMod
         ModTrunkPlacerTypes.register(modEventBus);
         ModFoliagePlacers.register(modEventBus);
 
+        ModTerrablender.registerBiomes();
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -81,6 +86,8 @@ public class FirstMod
     {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
+
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
         });
     }
 
