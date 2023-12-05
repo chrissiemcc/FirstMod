@@ -1,5 +1,6 @@
-// 1.20.1	2023-11-23T17:18:30.0224453	Tags for minecraft:block mod id firstmod
+// 1.20.1	2023-12-05T17:06:20.7927271	Tags for minecraft:block mod id firstmod
 3fde80c37aa17ba86d1f04cded3d5d1213c1e0ce data/firstmod/tags/blocks/metal_detector_valuables.json
+82362cfbd1836db13c7e9d36c8712821e795ac55 data/firstmod/tags/blocks/mineable/paxel.json
 a5c425b82d8520f7c14430bb1660baf3479db30a data/firstmod/tags/blocks/needs_sapphire_tool.json
 ab4b7a97ed75813c718303a31d2a9d4c1f01cddf data/forge/tags/blocks/needs_netherite_tool.json
 72b3fec899e11d59e0a58abfe3fadbc5cae33777 data/minecraft/tags/blocks/fences.json

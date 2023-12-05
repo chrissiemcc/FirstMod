@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-30T20:25:59.7181212	Item Models: firstmod
+// 1.20.1	2023-12-05T17:06:20.7987111	Item Models: firstmod
 1683a99891f1abafd5bf4ed18bad6d6877d66ff8 assets/firstmod/models/item/bar_brawl_music_disc.json
 84181406db063f27bbcaa1a409b7265a5090c383 assets/firstmod/models/item/catmint.json
 738da0b40465accd1ec5f7141c979046af3bba39 assets/firstmod/models/item/corn.json
@@ -64,6 +64,7 @@ a135b537502449acf9b5cee9d505198a68e28307 assets/firstmod/models/item/sapphire_le
 1fb6f86f5c578b6c12da2e255ff70ecf18648725 assets/firstmod/models/item/sapphire_leggings_netherite_trim.json
 5c30d02c3468f16098820d5d2ccd63e3c35074d6 assets/firstmod/models/item/sapphire_leggings_quartz_trim.json
 c2991a1814ace42c35726aa729c3fec9f90ba6bc assets/firstmod/models/item/sapphire_leggings_redstone_trim.json
+f53744305e9acc9d528e7e21d378abd91424accc assets/firstmod/models/item/sapphire_paxel.json
 3c2e2a5f7e12d0bc31585f3323aa67a83680a4d1 assets/firstmod/models/item/sapphire_pickaxe.json
 2983890c9920b179c288d3263333a4adafa24423 assets/firstmod/models/item/sapphire_pressure_plate.json
 9a534574ca24682fe92a0155bf8040fc9f25a9c7 assets/firstmod/models/item/sapphire_shovel.json

@@ -52,6 +52,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.SOUND_BLOCK.get());
         //Sound Block can only be mined by Sapphire Tools
 
+        this.tag(ModTags.Blocks.PAXEL_MINEABLE)
+                .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTag(BlockTags.MINEABLE_WITH_AXE)
+                .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
+        //Paxel can mine like a pickaxe, axe and shovel
+
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.SAPPHIRE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES)
