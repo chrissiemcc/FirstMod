@@ -49,6 +49,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> SAPPHIRE_PAXEL = ITEMS.register("sapphire_paxel",
             () -> new PaxelItem(ModToolTiers.SAPPHIRE, 2, 3, new Item.Properties()));
+    public static final RegistryObject<Item> SAPPHIRE_HAMMER = ITEMS.register("sapphire_hammer",
+            () -> new HammerItem(ModToolTiers.SAPPHIRE, 2, 3, new Item.Properties()));
 
     public static final RegistryObject<Item> SAPPHIRE_HELMET = ITEMS.register("sapphire_helmet",
             () -> new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.HELMET, new Item.Properties()));
