@@ -37,7 +37,7 @@ public class ModItems {
             () -> new FuelItem(new Item.Properties(), 400));
 
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
-            () -> new SwordItem(ModToolTiers.SAPPHIRE, 4, 2, new Item.Properties()));
+            () -> new SlowingSwordItem(ModToolTiers.SAPPHIRE, 4, 2, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe",
             () -> new PickaxeItem(ModToolTiers.SAPPHIRE, 1, 1, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_AXE = ITEMS.register("sapphire_axe",
