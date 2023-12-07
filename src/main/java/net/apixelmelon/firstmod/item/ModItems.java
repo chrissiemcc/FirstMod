@@ -6,6 +6,7 @@ import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.custom.ModBoatEntity;
 import net.apixelmelon.firstmod.item.custom.*;
 import net.apixelmelon.firstmod.sound.ModSounds;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,6 +61,9 @@ public class ModItems {
             () -> new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots",
             () -> new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> SAPPHIRE_HORSE_ARMOR = ITEMS.register("sapphire_horse_armor",
+            () -> new HorseArmorItem(12, new ResourceLocation(FirstMod.MOD_ID, "textures/entity/horse/armor/horse_armor_sapphire.png"), new Item.Properties()));
 
     public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
