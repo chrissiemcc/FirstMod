@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-30T20:25:59.7151292	Loot Tables
+// 1.20.1	2023-12-08T17:35:11.3274255	Loot Tables
 e5bf39a4f2d4cc8d6789c2b0a9560601070dc037 data/firstmod/loot_tables/blocks/catmint.json
 8602b10875960acbcdd504626a12364b19582f94 data/firstmod/loot_tables/blocks/corn_crop.json
 156860e01812c521f795be59bf07579a787f7214 data/firstmod/loot_tables/blocks/deepslate_sapphire_ore.json
@@ -21,6 +21,7 @@ c5537d66d124cedbdd4d8c8326b5b838eaf0889e data/firstmod/loot_tables/blocks/sapphi
 cb0e465980f191bfa83e21b20d43b8d57936c675 data/firstmod/loot_tables/blocks/sapphire_door.json
 3199c5ad2e867a3985960b2b7ab718813513d5f8 data/firstmod/loot_tables/blocks/sapphire_fence.json
 2bf495153c521d145ffaef4dbae5b7c3f32b13ea data/firstmod/loot_tables/blocks/sapphire_fence_gate.json
+77c7bf49855d536351fd999fd50a1f896911e748 data/firstmod/loot_tables/blocks/sapphire_lamp.json
 36def46b7d272447bea618bf40928a43617cf504 data/firstmod/loot_tables/blocks/sapphire_ore.json
 67f6372de18eec7a3a3c6d102c737f6f32dda300 data/firstmod/loot_tables/blocks/sapphire_pressure_plate.json
 5314bd19e3ff93747784557feddd5387909735eb data/firstmod/loot_tables/blocks/sapphire_slab.json

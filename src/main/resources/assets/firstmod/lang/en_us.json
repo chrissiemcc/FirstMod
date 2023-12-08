@@ -29,6 +29,8 @@
   "item.firstmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.firstmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CCO)",
 
+  "item.firstmod.rhino_spawn_egg": "Rhino Spawn Egg",
+
   "item.firstmod.pine_boat": "Pine Boat",
   "item.firstmod.pine_chest_boat": "Pine Chest Boat",
 
@@ -53,6 +55,8 @@
   "block.firstmod.sapphire_wall": "Sapphire Wall",
   "block.firstmod.sapphire_door": "Sapphire Door",
   "block.firstmod.sapphire_trapdoor": "Sapphire Trapdoor",
+
+  "block.firstmod.sapphire_lamp": "Sapphire Lamp",
 
   "block.firstmod.catmint": "Catmint",
 
