@@ -3,6 +3,7 @@ package net.apixelmelon.firstmod.datagen;
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.block.custom.CornCropBlock;
+import net.apixelmelon.firstmod.block.custom.SapphireLampBlock;
 import net.apixelmelon.firstmod.block.custom.StrawberryCropBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -85,6 +86,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(ModBlocks.PINE_SAPLING);
 
         blockWithItem(ModBlocks.MOD_PORTAL);
+
+        customLamp();
+    }
+
+    private void customLamp() {
+        getVariantBuilder(ModBlocks.SAPPHIRE_LAMP.get()).forAllStates(state -> {
+            if(state.getValue(SapphireLampBlock.CLICKED)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("sapphire_lamp_on",
+                        new ResourceLocation(FirstMod.MOD_ID, "block/" + "sapphire_lamp_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("sapphire_lamp_off",
+                        new ResourceLocation(FirstMod.MOD_ID, "block/" +"sapphire_lamp_off")))};
+            }
+        });
+        simpleBlockItem(ModBlocks.SAPPHIRE_LAMP.get(), models().cubeAll("sapphire_lamp_on",
+                new ResourceLocation(FirstMod.MOD_ID, "block/" +"sapphire_lamp_on")));
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {

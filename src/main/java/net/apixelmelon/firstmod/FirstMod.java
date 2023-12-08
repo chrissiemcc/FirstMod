@@ -53,27 +53,20 @@ public class FirstMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModeTabs.register(modEventBus);
-
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-
         ModLootModifiers.register(modEventBus);
         ModVillagers.register(modEventBus);
-
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
-
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
-
         ModRecipes.register(modEventBus);
-
         ModTrunkPlacerTypes.register(modEventBus);
         ModFoliagePlacers.register(modEventBus);
+        ModEnchantments.register(modEventBus);
 
         ModTerrablender.registerBiomes();
-
-        ModEnchantments.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

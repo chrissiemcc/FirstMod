@@ -93,6 +93,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.DICE);
 
+        simpleItem(ModItems.DATA_TABLET);
+
         saplingItem(ModBlocks.PINE_SAPLING);
     }
 

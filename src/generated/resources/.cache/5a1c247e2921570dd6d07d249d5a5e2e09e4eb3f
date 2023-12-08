@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-02T21:21:07.4333354	Block States: firstmod
+// 1.20.1	2023-12-08T17:35:11.3294214	Block States: firstmod
 53191b287513710258b66a6deffbe849a9e84c65 assets/firstmod/blockstates/catmint.json
 bab8b68f4ceab039c59a4f247eda4f53f54bb999 assets/firstmod/blockstates/corn_crop.json
 f73329699d7a47769ad2a693fc28a0cc2edf622e assets/firstmod/blockstates/deepslate_sapphire_ore.json
@@ -22,6 +22,7 @@ a7176d5af6f715917afcdb832fbb6c197d652976 assets/firstmod/blockstates/sapphire_bu
 0db3158c16dbaef952779a78965ac8e8ce4cf9b1 assets/firstmod/blockstates/sapphire_door.json
 ebb66349e3c4f81cc7f937afde435fc5416d9700 assets/firstmod/blockstates/sapphire_fence.json
 a97699b754548a7a8f7a2efb78307573428d6c83 assets/firstmod/blockstates/sapphire_fence_gate.json
+b02dba23212d56b365fb34824c843a5c72981d1b assets/firstmod/blockstates/sapphire_lamp.json
 7adec480c1f6535ed1a2a64a15ffde8a089364b1 assets/firstmod/blockstates/sapphire_ore.json
 2497355b4a76926f38928eb9597aadfbc1b707db assets/firstmod/blockstates/sapphire_pressure_plate.json
 b5795c5b9b40bfc3cbe44dcbb12eb67e42ad5f25 assets/firstmod/blockstates/sapphire_slab.json
@@ -74,6 +75,8 @@ b47235c27a567429807378eae7563fbe4de371f4 assets/firstmod/models/block/sapphire_f
 8c93192ec6650c50275c1660ae2fe94dc3b692a6 assets/firstmod/models/block/sapphire_fence_gate_wall_open.json
 5dd92c80cac14811b1174d02f40d90aa8f2eabaa assets/firstmod/models/block/sapphire_fence_post.json
 fef11606c645870728fdc12d3ff40c3395481c9c assets/firstmod/models/block/sapphire_fence_side.json
+b6ea073e2c46b21baa4a6e4bd6e7e1b48b681887 assets/firstmod/models/block/sapphire_lamp_off.json
+a8168b63eeb062a9b779a661f7fa5a0b85ca6fa4 assets/firstmod/models/block/sapphire_lamp_on.json
 1751fd608fd55d4326a518798ded04e8a938752a assets/firstmod/models/block/sapphire_ore.json
 923bb1ef917e5fa4a349db072c8a7eefa761db66 assets/firstmod/models/block/sapphire_pressure_plate.json
 296ffa16efb9edebdd14498c20ed443c54c4fad8 assets/firstmod/models/block/sapphire_pressure_plate_down.json
@@ -112,6 +115,7 @@ c6a4f6a95e1efb33020163e35233a37afe1200f7 assets/firstmod/models/item/pine_leaves
 cae53376782cca8efc39d2adfc4a3e955646cebf assets/firstmod/models/item/potted_catmint.json
 8d6b2eb1cd30d39e7a636fcaeff5a0b3807baa41 assets/firstmod/models/item/raw_sapphire_block.json
 41fde4e0d90f4476bc28f40870de7b0a5b97521d assets/firstmod/models/item/sapphire_block.json
+2913a0bf3efd4ecf6d295fbe351f676865ef0fc9 assets/firstmod/models/item/sapphire_lamp.json
 961c18e2dc5141cf5c239a8ca0b5e9c9f7e80c80 assets/firstmod/models/item/sapphire_ore.json
 66681315aefe235c956f5df745d0d6a04362afa8 assets/firstmod/models/item/sound_block.json
 ba030cdeee971af3828f94efe67559d84050add0 assets/firstmod/models/item/stripped_pine_log.json

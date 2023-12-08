@@ -62,6 +62,8 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModItems.DICE.get());
 
+                        pOutput.accept(ModItems.DATA_TABLET.get());
+
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
 
@@ -83,6 +85,8 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModBlocks.SAPPHIRE_DOOR.get());
                         pOutput.accept(ModBlocks.SAPPHIRE_TRAPDOOR.get());
+
+                        pOutput.accept(ModBlocks.SAPPHIRE_LAMP.get());
 
                         pOutput.accept(ModBlocks.CATMINT.get());
 
