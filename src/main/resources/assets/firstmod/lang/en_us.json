@@ -70,12 +70,14 @@
 
   "block.firstmod.pine_sapling": "Pine Sapling",
 
-  "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!",
+  "creativetab.first_tab": "Sapphire First Tab",
+
+  "enchantment.firstmod.lightning_striker": "Lightning Striker",
 
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
   "entity.firstmod.mod_chest_boat": "Boat with Chest",
 
   "sounds.firstmod.metal_detector_found_ore": "Metal Detector Jingle",
 
-  "creativetab.first_tab": "Sapphire First Tab"
+  "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!"
 }
