@@ -93,7 +93,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.DICE);
 
-        simpleItem(ModItems.DATA_TABLET);
+        //simpleItem(ModItems.DATA_TABLET);
+        //datagen can't be used when adding custom item properties
 
         saplingItem(ModBlocks.PINE_SAPLING);
     }

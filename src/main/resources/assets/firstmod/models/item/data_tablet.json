@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "firstmod:item/data_tablet_off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "firstmod:on": 1
+      },
+      "model": "firstmod:item/data_tablet_on"
+    }
+  ]
+}

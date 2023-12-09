@@ -8,6 +8,7 @@ import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.client.ModBoatRenderer;
 import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
+import net.apixelmelon.firstmod.item.ModItemProperties;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
 import net.apixelmelon.firstmod.recipe.ModRecipes;
@@ -119,6 +120,10 @@ public class FirstMod
             EntityRenderers.register(ModEntities.DICE_PROJECTILE.get(), ThrownItemRenderer::new);
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
+
+            event.enqueueWork(() -> {
+                ModItemProperties.addCustomItemProperties();
+            });
         }
     }
 }
