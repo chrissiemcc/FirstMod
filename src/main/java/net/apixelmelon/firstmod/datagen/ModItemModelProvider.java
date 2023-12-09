@@ -145,10 +145,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         }
     }
 
-    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void saplingItem(RegistryObject<Block> block) {
+        this.withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(FirstMod.MOD_ID,"block/" + item.getId().getPath()));
+                new ResourceLocation(FirstMod.MOD_ID,"block/" + block.getId().getPath()));
     }
 
     private void simpleItem(RegistryObject<Item> item) {
