@@ -10,6 +10,8 @@ import net.apixelmelon.firstmod.item.custom.HammerItem;
 import net.apixelmelon.firstmod.villager.ModVillagers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
@@ -20,6 +22,7 @@ import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -32,22 +35,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = FirstMod.MOD_ID)
+@Mod.EventBusSubscriber(modid = FirstMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
-
-    @SubscribeEvent
-    public static void onCommandsRegister(RegisterCommandsEvent event) {
-        new SetHomeCommand(event.getDispatcher());
-        new ReturnHomeCommand(event.getDispatcher());
-
-        ConfigCommand.register(event.getDispatcher());
-    }//registers the commands
-
-    @SubscribeEvent
-    public static void onPlayerCloned(PlayerEvent.Clone event) {
-        event.getEntity().getPersistentData().putIntArray("firstmod.homepos",
-                event.getOriginal().getPersistentData().getIntArray("firstmod.homepos"));
-    }//ensures the home pos data is stored when a player dies
 
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
@@ -138,6 +127,33 @@ public class ModEvents {
                 HARVESTED_BLOCKS.add(pos);
                 serverPlayer.gameMode.destroyBlock(pos);
                 HARVESTED_BLOCKS.remove(pos);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher());
+        new ReturnHomeCommand(event.getDispatcher());
+
+        ConfigCommand.register(event.getDispatcher());
+    }//registers the commands
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        event.getEntity().getPersistentData().putIntArray("firstmod.homepos",
+                event.getOriginal().getPersistentData().getIntArray("firstmod.homepos"));
+    }//ensures the home pos data is stored when a player dies
+
+    @SubscribeEvent
+    public static void livingDamage(LivingDamageEvent event) {
+        if (event.getEntity() instanceof Sheep && event.getSource().getDirectEntity() instanceof Player player) {
+            if(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.SAPPHIRE_AXE.get()) {
+                FirstMod.LOGGER.info("Sheep was hit with Sapphire Axe by " + player.getName().getString());
+            }else if(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == Items.DIAMOND) {
+                FirstMod.LOGGER.info("Sheep was hit with DIAMOND by " + player.getName().getString());
+            } else {
+                FirstMod.LOGGER.info("Sheep was hit with something else by " + player.getName().getString());
             }
         }
     }
