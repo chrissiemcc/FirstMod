@@ -3,6 +3,8 @@ package net.apixelmelon.firstmod.event;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.command.ReturnHomeCommand;
+import net.apixelmelon.firstmod.command.SetHomeCommand;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.item.custom.HammerItem;
 import net.apixelmelon.firstmod.villager.ModVillagers;
@@ -17,11 +19,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.server.command.ConfigCommand;
 
 import java.util.HashSet;
 import java.util.List;
@@ -29,6 +34,20 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = FirstMod.MOD_ID)
 public class ModEvents {
+
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher());
+        new ReturnHomeCommand(event.getDispatcher());
+
+        ConfigCommand.register(event.getDispatcher());
+    }//registers the commands
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        event.getEntity().getPersistentData().putIntArray("firstmod.homepos",
+                event.getOriginal().getPersistentData().getIntArray("firstmod.homepos"));
+    }//ensures the home pos data is stored when a player dies
 
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
