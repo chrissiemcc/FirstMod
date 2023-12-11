@@ -17,7 +17,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,6 +32,7 @@ public class MetalDetectorItem extends Item {
         if(!pContext.getLevel().isClientSide) {
             BlockPos positionClicked = pContext.getClickedPos();
             Player player = pContext.getPlayer();
+            assert player != null;
             boolean foundBlock = false;
 
             for(int i = 0; i <= positionClicked.getY() + 64; i++) {
