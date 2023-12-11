@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import org.jetbrains.annotations.NotNull;
 
 public class StrawberryCropBlock extends CropBlock {
     public static final int MAX_AGE = 5;
@@ -18,12 +17,12 @@ public class StrawberryCropBlock extends CropBlock {
     }
 
     @Override
-    protected @NotNull ItemLike getBaseSeedId() {
+    protected ItemLike getBaseSeedId() {
         return ModItems.STRAWBERRY_SEEDS.get();
     }
 
     @Override
-    public @NotNull IntegerProperty getAgeProperty() {
+    public IntegerProperty getAgeProperty() {
         return AGE;
     }
 

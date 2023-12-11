@@ -17,12 +17,11 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Objects;
 
 public class MetalDetectorItem extends Item {
     public MetalDetectorItem(Properties pProperties) {
@@ -30,11 +29,10 @@ public class MetalDetectorItem extends Item {
     }
 
     @Override
-    public @NotNull InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide) {
             BlockPos positionClicked = pContext.getClickedPos();
             Player player = pContext.getPlayer();
-            assert player != null;
             boolean foundBlock = false;
 
             for(int i = 0; i <= positionClicked.getY() + 64; i++) {
@@ -61,7 +59,7 @@ public class MetalDetectorItem extends Item {
             }
         }
 
-        pContext.getItemInHand().hurtAndBreak(1, Objects.requireNonNull(pContext.getPlayer()),
+        pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(),
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return InteractionResult.SUCCESS;
@@ -78,7 +76,7 @@ public class MetalDetectorItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("tooltip.firstmod.metal_detector.tooltip"));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     } // create the tooltip object for this item using en_us.json

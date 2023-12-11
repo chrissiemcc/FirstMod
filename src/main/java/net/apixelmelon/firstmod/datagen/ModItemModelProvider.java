@@ -20,10 +20,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedHashMap;
-import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    private static final LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
+    private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
         trimMaterials.put(TrimMaterials.IRON, 0.2F);
@@ -103,9 +102,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         final String MOD_ID = FirstMod.MOD_ID;
 
         if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
-            trimMaterials.forEach((trimMaterial, value) -> {
+            trimMaterials.entrySet().forEach(entry -> {
 
-                float trimValue = value;
+                ResourceKey<TrimMaterial> trimMaterial = entry.getKey();
+                float trimValue = entry.getValue();
 
                 String armorType = switch (armorItem.getEquipmentSlot()) {
                     case HEAD -> "helmet";
@@ -164,23 +164,23 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture", new ResourceLocation(FirstMod.MOD_ID, "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath()));
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", new ResourceLocation(FirstMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     private void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(), mcLoc("block/button_inventory"))
-                .texture("texture", new ResourceLocation(FirstMod.MOD_ID, "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath()));
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
+                .texture("texture", new ResourceLocation(FirstMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     private void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(), mcLoc("block/wall_inventory"))
-                .texture("wall", new ResourceLocation(FirstMod.MOD_ID, "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath()));
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall", new ResourceLocation(FirstMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     private void trapdoorItem(RegistryObject<Block> block) {
-        this.withExistingParent(FirstMod.MOD_ID + ":" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(),
-                modLoc("block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath() + "_bottom"));
+        this.withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
     }
 
     private void simpleBlockItem(RegistryObject<Block> block) {
@@ -190,8 +190,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                     new ResourceLocation(FirstMod.MOD_ID, "item/" + block.getId().getPath()));
         }
         catch(IllegalArgumentException e) {
-            this.withExistingParent(FirstMod.MOD_ID + ":" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(),
-                    modLoc("block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath()));
+            this.withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                    modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
         }//For stairs, slab, pressure plate and fence gate that require a different .json file
     }
 

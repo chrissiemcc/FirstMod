@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -53,17 +52,17 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public @NotNull SoundEvent getEquipSound() {
+    public SoundEvent getEquipSound() {
         return this.equipSound;
     }
 
     @Override
-    public @NotNull Ingredient getRepairIngredient() {
+    public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 
     @Override
-    public @NotNull String getName() {
+    public String getName() {
         return FirstMod.MOD_ID + ":" + this.name;
     }
 

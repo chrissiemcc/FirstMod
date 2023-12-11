@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
-import org.jetbrains.annotations.NotNull;
 
 public class CornCropBlock extends CropBlock {
     public static final int FIRST_STAGE_MAX_AGE = 7;
@@ -42,11 +41,11 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE_BY_AGE[this.getAge(pState)];
     }
 
-    public void randomTick(@NotNull BlockState pState, ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pLevel.isAreaLoaded(pPos, 1)) return; //do nothing if the area isn't loaded
         if (pLevel.getRawBrightness(pPos, 0) >= 9) { //if brightness is equal to or above 9
             int currentAge = this.getAge(pState);
@@ -70,18 +69,18 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean canSustainPlant(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull Direction facing, @NotNull IPlantable plantable) {
+    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return super.mayPlaceOn(state, world, pos);
     }
 
     @Override
-    public boolean canSurvive(@NotNull BlockState pState, @NotNull LevelReader pLevel, @NotNull BlockPos pPos) {
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) &&
                 pLevel.getBlockState(pPos.below(1)).getValue(AGE) == 7);
     }//the top crop block can only survive if the correct bottom crop block is there
 
     @Override
-    public void growCrops(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState) {
+    public void growCrops(Level pLevel, BlockPos pPos, BlockState pState) {
         int nextAge = this.getAge(pState) + this.getBonemealAgeIncrease(pLevel);
         int maxAge = this.getMaxAge();
         if(nextAge > maxAge) {
@@ -101,12 +100,12 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    protected @NotNull ItemLike getBaseSeedId() {
+    protected ItemLike getBaseSeedId() {
         return ModItems.CORN_SEEDS.get();
     }
 
     @Override
-    public @NotNull IntegerProperty getAgeProperty() {
+    public IntegerProperty getAgeProperty() {
         return AGE;
     }
 
