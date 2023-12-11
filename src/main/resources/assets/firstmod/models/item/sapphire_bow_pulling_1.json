@@ -1,0 +1,6 @@
+{
+    "parent": "firstmod:item/sapphire_bow",
+    "textures": {
+        "layer0": "firstmod:item/sapphire_bow_pulling_1"
+    }
+}
