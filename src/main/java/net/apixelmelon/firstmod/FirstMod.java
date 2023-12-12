@@ -3,6 +3,7 @@ package net.apixelmelon.firstmod;
 import com.mojang.logging.LogUtils;
 import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.block.entity.ModBlockEntities;
+import net.apixelmelon.firstmod.effect.ModEffects;
 import net.apixelmelon.firstmod.enchantment.ModEnchantments;
 import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.client.ModBoatRenderer;
@@ -69,6 +70,7 @@ public class FirstMod
         ModFoliagePlacers.register(modEventBus);
         ModEnchantments.register(modEventBus);
         ModPaintings.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         ModTerrablender.registerBiomes();
 
