@@ -11,6 +11,7 @@ import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItemProperties;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
+import net.apixelmelon.firstmod.painting.ModPaintings;
 import net.apixelmelon.firstmod.recipe.ModRecipes;
 import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
 import net.apixelmelon.firstmod.screen.ModMenuTypes;
@@ -67,6 +68,7 @@ public class FirstMod
         ModTrunkPlacerTypes.register(modEventBus);
         ModFoliagePlacers.register(modEventBus);
         ModEnchantments.register(modEventBus);
+        ModPaintings.register(modEventBus);
 
         ModTerrablender.registerBiomes();
 

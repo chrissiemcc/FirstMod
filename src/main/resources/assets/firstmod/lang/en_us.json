@@ -85,6 +85,13 @@
   "entity.minecraft.villager.firstmod.soundmaster": "Sound Master",
   "entity.firstmod.mod_chest_boat": "Boat with Chest",
 
+  "painting.firstmod.world.title": "World",
+  "painting.firstmod.world.author": "NanoAttack",
+  "painting.firstmod.shrimp.title": "Shrimp",
+  "painting.firstmod.shrimp.author": "NanoAttack",
+  "painting.firstmod.saw_them.title": "Saw Them",
+  "painting.firstmod.saw_them.author": "NanoAttack",
+
   "sounds.firstmod.metal_detector_found_ore": "Metal Detector Jingle",
 
   "tooltip.firstmod.metal_detector.tooltip": "Finds valuables underground!"
