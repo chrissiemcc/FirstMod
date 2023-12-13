@@ -43,15 +43,20 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.RAW_SAPPHIRE);
-
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.PINE_CONE);
         simpleItem(ModItems.STRAWBERRY);
         simpleItem(ModItems.STRAWBERRY_SEEDS);
-
         simpleItem(ModItems.CORN);
         simpleItem(ModItems.CORN_SEEDS);
         simpleItem(ModItems.BAR_BRAWL_MUSIC_DISC);
+        simpleItem(ModItems.SAPPHIRE_HORSE_ARMOR);
+        simpleItem(ModItems.PINE_SIGN);
+        simpleItem(ModItems.PINE_HANGING_SIGN);
+        simpleItem(ModItems.PINE_BOAT);
+        simpleItem(ModItems.PINE_CHEST_BOAT);
+        simpleItem(ModItems.DICE);
+        simpleItem(ModItems.SOAP_WATER_BUCKET);
 
         simpleBlockItem(ModBlocks.SAPPHIRE_DOOR);
         simpleBlockItem(ModBlocks.SAPPHIRE_STAIRS);
@@ -78,22 +83,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.SAPPHIRE_LEGGINGS);
         trimmedArmorItem(ModItems.SAPPHIRE_BOOTS);
 
-        simpleItem(ModItems.SAPPHIRE_HORSE_ARMOR);
-
         simpleBlockItemBlockTexture(ModBlocks.CATMINT);
 
         withExistingParent(ModItems.RHINO_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
-        simpleItem(ModItems.PINE_SIGN);
-        simpleItem(ModItems.PINE_HANGING_SIGN);
-
-        simpleItem(ModItems.PINE_BOAT);
-        simpleItem(ModItems.PINE_CHEST_BOAT);
-
-        simpleItem(ModItems.DICE);
-
         //simpleItem(ModItems.DATA_TABLET);
-        //datagen can't be used when adding custom item properties
+        //datagen shouldn't be used when adding custom item properties as it's a unique item
 
         saplingItem(ModBlocks.PINE_SAPLING);
     }

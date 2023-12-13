@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.block;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.custom.*;
+import net.apixelmelon.firstmod.fluid.ModFluids;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.util.ModWoodTypes;
@@ -161,6 +162,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SAPPHIRE_LAMP = registerBlock("sapphire_lamp",
             () -> new SapphireLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.GLASS)
                     .lightLevel(state -> state.getValue(SapphireLampBlock.CLICKED) ? 15 : 0)));
+
+    public static final RegistryObject<LiquidBlock> SOAP_WATER_BLOCK = BLOCKS.register("soap_water_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_SOAP_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

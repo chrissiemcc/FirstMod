@@ -4,6 +4,7 @@ import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
 import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.custom.ModBoatEntity;
+import net.apixelmelon.firstmod.fluid.ModFluids;
 import net.apixelmelon.firstmod.item.custom.*;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.minecraft.resources.ResourceLocation;
@@ -100,6 +101,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SAPPHIRE_SHIELD = ITEMS.register("sapphire_shield",
             () -> new ShieldItem(new Item.Properties().durability(500)));
+
+    public static final RegistryObject<Item> SOAP_WATER_BUCKET = ITEMS.register("soap_water_bucket",
+            () -> new BucketItem(ModFluids.SOURCE_SOAP_WATER, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

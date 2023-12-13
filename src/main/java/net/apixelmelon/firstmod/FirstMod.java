@@ -8,6 +8,8 @@ import net.apixelmelon.firstmod.enchantment.ModEnchantments;
 import net.apixelmelon.firstmod.entity.ModEntities;
 import net.apixelmelon.firstmod.entity.client.ModBoatRenderer;
 import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
+import net.apixelmelon.firstmod.fluid.ModFluidTypes;
+import net.apixelmelon.firstmod.fluid.ModFluids;
 import net.apixelmelon.firstmod.item.ModCreativeModeTabs;
 import net.apixelmelon.firstmod.item.ModItemProperties;
 import net.apixelmelon.firstmod.item.ModItems;
@@ -27,6 +29,8 @@ import net.apixelmelon.firstmod.worldgen.biome.surface.ModSurfaceRules;
 import net.apixelmelon.firstmod.worldgen.tree.ModFoliagePlacers;
 import net.apixelmelon.firstmod.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -77,6 +81,8 @@ public class FirstMod {
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 
         ModTerrablender.registerBiomes();
 
@@ -104,7 +110,7 @@ public class FirstMod {
         });
     }
 
-    // Add the items to the ingredients tab
+    // adds the items to the ingredients tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SAPPHIRE);
@@ -128,12 +134,17 @@ public class FirstMod {
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
             EntityRenderers.register(ModEntities.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));
             EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), pContext -> new ModBoatRenderer(pContext, true));
-
             EntityRenderers.register(ModEntities.DICE_PROJECTILE.get(), ThrownItemRenderer::new);
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
 
-            event.enqueueWork(() -> ModItemProperties.addCustomItemProperties());
+            event.enqueueWork(() -> {
+                ModItemProperties.addCustomItemProperties();
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
+                //makes the fluid translucent
+            });
         }
     }
 }

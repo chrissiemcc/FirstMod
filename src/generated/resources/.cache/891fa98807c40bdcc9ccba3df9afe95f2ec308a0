@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-09T20:17:44.1618842	Item Models: firstmod
+// 1.20.1	2023-12-13T17:57:54.9517356	Item Models: firstmod
 1683a99891f1abafd5bf4ed18bad6d6877d66ff8 assets/firstmod/models/item/bar_brawl_music_disc.json
 84181406db063f27bbcaa1a409b7265a5090c383 assets/firstmod/models/item/catmint.json
 738da0b40465accd1ec5f7141c979046af3bba39 assets/firstmod/models/item/corn.json
@@ -75,5 +75,6 @@ f53744305e9acc9d528e7e21d378abd91424accc assets/firstmod/models/item/sapphire_pa
 4b7875ac1f3990f132d8dbb1280d68a042e80903 assets/firstmod/models/item/sapphire_sword.json
 9630a801ef8ae32e13be964ff863c6811ee98144 assets/firstmod/models/item/sapphire_trapdoor.json
 bd3f7b1191a4fe4d7567bf5805c9f017c482b13c assets/firstmod/models/item/sapphire_wall.json
+c6c0db46deebcc137333f64940f19d98f95e07dd assets/firstmod/models/item/soap_water_bucket.json
 5d3d402ae799df9cac9a81d5df583ba71d4fdb53 assets/firstmod/models/item/strawberry.json
 8369131a4e99433ea3d0183c5ae3fb3b00a29853 assets/firstmod/models/item/strawberry_seeds.json
