@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "has_sapphire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "firstmod:sapphire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "firstmod:textures/block/sapphire_ore.png",
+    "description": {
+      "text": "The Power lies in the Sapphire!"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "firstmod:sapphire"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "First Mod"
+    }
+  },
+  "requirements": [
+    [
+      "has_sapphire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
