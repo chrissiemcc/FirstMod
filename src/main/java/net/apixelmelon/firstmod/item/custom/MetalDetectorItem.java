@@ -6,8 +6,11 @@ import net.apixelmelon.firstmod.util.InventoryUtil;
 import net.apixelmelon.firstmod.util.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -50,6 +53,8 @@ public class MetalDetectorItem extends Item {
                             ModSounds.METAL_DETECTOR_FOUND_ORE.get(), SoundSource.BLOCKS, 1f, 1f, 0);
                     //play sound when ore is detected
 
+                    spawnFoundParticles(pContext, positionClicked, state);
+
                     break;
                 }
             }
@@ -63,6 +68,16 @@ public class MetalDetectorItem extends Item {
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return InteractionResult.SUCCESS;
+    }
+
+    private void spawnFoundParticles(UseOnContext pContext, BlockPos positionClicked, BlockState blockState) {
+        for(int i = 0; i < 20; i++) {
+            ServerLevel level = (ServerLevel) pContext.getLevel();
+
+            level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, blockState),
+                    positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d, 1,
+                    Math.cos(i * 18) * 0.15d, 0.15d, Math.sin(i * 18) * 0.15d, 0.1);
+        }
     }
 
     private void addDataToDataTablet(Player player, BlockPos below, Block block) {

@@ -13,6 +13,7 @@ import net.apixelmelon.firstmod.item.ModItemProperties;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
 import net.apixelmelon.firstmod.painting.ModPaintings;
+import net.apixelmelon.firstmod.particle.ModParticles;
 import net.apixelmelon.firstmod.potion.BetterBrewingRecipe;
 import net.apixelmelon.firstmod.potion.ModPotions;
 import net.apixelmelon.firstmod.recipe.ModRecipes;
@@ -75,6 +76,7 @@ public class FirstMod {
         ModPaintings.register(modEventBus);
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         ModTerrablender.registerBiomes();
 
