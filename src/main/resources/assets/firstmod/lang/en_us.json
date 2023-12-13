@@ -40,6 +40,10 @@
 
   "item.firstmod.data_tablet": "Data Tablet",
 
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
   "block.firstmod.sapphire_block": "Block of Sapphire",
   "block.firstmod.raw_sapphire_block": "Block of Raw Sapphire",
 

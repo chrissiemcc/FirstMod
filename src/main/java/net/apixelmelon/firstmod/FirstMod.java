@@ -13,6 +13,8 @@ import net.apixelmelon.firstmod.item.ModItemProperties;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.loot.ModLootModifiers;
 import net.apixelmelon.firstmod.painting.ModPaintings;
+import net.apixelmelon.firstmod.potion.BetterBrewingRecipe;
+import net.apixelmelon.firstmod.potion.ModPotions;
 import net.apixelmelon.firstmod.recipe.ModRecipes;
 import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
 import net.apixelmelon.firstmod.screen.ModMenuTypes;
@@ -28,11 +30,14 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -71,6 +76,7 @@ public class FirstMod
         ModEnchantments.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         ModTerrablender.registerBiomes();
 
@@ -93,6 +99,9 @@ public class FirstMod
             ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.20f); //20% chance strawberry seeds adds to the composter pile
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION.get()));
+            //adds the potion recipe to the registry
         });
     }
 
