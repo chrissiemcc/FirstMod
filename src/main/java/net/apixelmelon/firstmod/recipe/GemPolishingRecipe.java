@@ -33,13 +33,13 @@ public class GemPolishingRecipe implements Recipe<SimpleContainer> {
         }
 
         return inputItems.get(0).test(pContainer.getItem(0));
-        //1st integer is the item index in the recipe list
-        //2nd integer is the item index in the gui container
+        // 1st integer is the item index in the recipe list
+        // 2nd integer is the item index in the gui container
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return inputItems;
+        return this.inputItems;
     }
 
     @Override
@@ -73,6 +73,7 @@ public class GemPolishingRecipe implements Recipe<SimpleContainer> {
     }
 
     public static class Type implements RecipeType<GemPolishingRecipe> {
+        private Type() {}
         public static final Type INSTANCE = new Type();
         public static final String ID = "gem_polishing";
     }
@@ -102,8 +103,8 @@ public class GemPolishingRecipe implements Recipe<SimpleContainer> {
             for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromNetwork(pBuffer));
             }
-            //same functionality as
-            //inputs.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
+            // Same functionality as
+            // Inputs.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
 
             ItemStack output = pBuffer.readItem();
             return new GemPolishingRecipe(inputs, output, pRecipeId);

@@ -106,7 +106,7 @@ public class FirstMod {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION.get()));
-            //adds the potion recipe to the registry
+            // Adds the potion recipe to the registry
         });
     }
 

@@ -59,7 +59,7 @@ public class GemPolishingStationBlock extends BaseEntityBlock {
     @Override
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
-    } // block entity will be invisible if this is not called!
+    } // Block entity will be invisible if this is not called!
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {

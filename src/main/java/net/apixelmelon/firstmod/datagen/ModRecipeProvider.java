@@ -2,9 +2,11 @@ package net.apixelmelon.firstmod.datagen;
 
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.ModBlocks;
+import net.apixelmelon.firstmod.datagen.custom.GemPolishingRecipeBuilder;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -42,6 +44,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //        .unlockedBy(getHasName(ModBlocks.SAPPHIRE_BLOCK.get()), has(ModBlocks.SAPPHIRE_BLOCK.get()))
         //        .save(pWriter);
         //shapeless recipe
+
+        new GemPolishingRecipeBuilder(ModItems.RAW_SAPPHIRE.get(), ModItems.SAPPHIRE.get(), 3)
+                .unlockedBy("has_raw_sapphire", has(ModItems.RAW_SAPPHIRE.get())).save(pWriter);
+
+        new GemPolishingRecipeBuilder(Items.COAL, Items.DIAMOND, 3)
+                .unlockedBy("has_diamond", has(Items.DIAMOND)).save(pWriter);
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

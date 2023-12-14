@@ -41,17 +41,16 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
-        }// updates the block entity each time the contents are changed/updated
+        } // Updates the block entity each time the contents are changed/updated
 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0 -> stack.getItem() == ModItems.RAW_SAPPHIRE.get();
-                case 1 -> true;
+                case 0, 1 -> true;
                 case 2 -> false;
                 case 3 -> stack.getItem() == ModItems.CORN.get();
                 default -> super.isItemValid(slot, stack);
-            };// only allows valid items to be inserted
+            }; // Only allows valid items to be inserted
         }
     };
 
@@ -167,7 +166,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         } else {
             resetProgress();
         }
-    }// called once for every tick on the server
+    } // Called once for every tick on the server
 
     private boolean isOutputSlotEmptyOrReceivable() {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
@@ -185,7 +184,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
-                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + 1));
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
 
     private boolean hasRecipe() {
@@ -196,7 +195,8 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         }
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
-        return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+        return canInsertAmountIntoOutputSlot(result.getCount())
+                && canInsertItemIntoOutputSlot(result.getItem());
     }
 
     private Optional<GemPolishingRecipe> getCurrentRecipe() {
