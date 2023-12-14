@@ -23,7 +23,7 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
 
     public GemPolishingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.GEM_POLISHING_MENU.get(), pContainerId);
-        checkContainerSize(inv, 2);
+        checkContainerSize(inv, 4); // This number must be the number of inventory slots!
         blockEntity = ((GemPolishingStationBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
@@ -33,15 +33,17 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
             this.addSlot(new SlotItemHandler(iItemHandler, 0, 80, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 59));
-        });//sets where the block entities slots are
+            this.addSlot(new SlotItemHandler(iItemHandler, 1, 26, 59));
+            this.addSlot(new SlotItemHandler(iItemHandler, 2, 80, 59));
+            this.addSlot(new SlotItemHandler(iItemHandler, 3, 134, 59));
+        }); // Sets where the block entities slots are
 
         addDataSlots(data);
     }
 
     public boolean isCrafting() {
         return data.get(0) > 0;
-    }
+    } // Return true if the progress (data) is greater than 0
 
     public int getScaledProgress() {
         int progress = this.data.get(0);
@@ -67,7 +69,7 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
@@ -113,11 +115,11 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
                 this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
-    }//sets where the player inventory is
+    } // Sets where the player inventory is
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
-    }//sets where the player hotbar is
+    } // Sets where the player hotbar is
 }

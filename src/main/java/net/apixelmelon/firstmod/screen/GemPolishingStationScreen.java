@@ -22,7 +22,7 @@ public class GemPolishingStationScreen extends AbstractContainerScreen<GemPolish
         super.init();
         this.inventoryLabelY = 10000;
         this.titleLabelY = 10000;
-    }
+    } // Sets the inventory and title labels to be off the screen (if desired that they disappear like that)
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
@@ -40,7 +40,7 @@ public class GemPolishingStationScreen extends AbstractContainerScreen<GemPolish
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
             guiGraphics.blit(TEXTURE, x + 85, y + 30, 176, 0, 8, menu.getScaledProgress());
-        }// draws the arrow on the side of the gui texture onto the main gui while the menu is crafting
+        } // Draws the arrow on the side of the gui texture onto the main gui while the menu is crafting
     }
 
     @Override

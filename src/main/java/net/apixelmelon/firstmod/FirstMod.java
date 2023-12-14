@@ -110,7 +110,7 @@ public class FirstMod {
         });
     }
 
-    // adds the items to the ingredients tab
+    // Adds the items to the ingredients tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SAPPHIRE);
@@ -143,7 +143,7 @@ public class FirstMod {
 
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
-                //makes the fluid translucent
+                // Makes the fluid translucent
             });
         }
     }

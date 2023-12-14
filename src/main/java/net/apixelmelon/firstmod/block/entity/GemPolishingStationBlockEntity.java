@@ -1,5 +1,7 @@
 package net.apixelmelon.firstmod.block.entity;
 
+import net.apixelmelon.firstmod.FirstMod;
+import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.recipe.GemPolishingRecipe;
 import net.apixelmelon.firstmod.screen.GemPolishingStationMenu;
 import net.minecraft.core.BlockPos;
@@ -32,18 +34,31 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class GemPolishingStationBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
-        }//updates the block entity each time the contents are changed/updated
+        }// updates the block entity each time the contents are changed/updated
+
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+            return switch (slot) {
+                case 0 -> stack.getItem() == ModItems.RAW_SAPPHIRE.get();
+                case 1 -> true;
+                case 2 -> false;
+                case 3 -> stack.getItem() == ModItems.CORN.get();
+                default -> super.isItemValid(slot, stack);
+            };// only allows valid items to be inserted
+        }
     };
 
     private static final int INPUT_SLOT = 0;
-    private static final int OUTPUT_SLOT = 1;
+    private static final int FLUID_INPUT_SLOT = 1;
+    private static final int OUTPUT_SLOT = 2;
+    private static final int ENERGY_ITEM_SLOT = 0;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
@@ -142,17 +157,21 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
-        if(hasRecipe()) {
+        if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
             increaseCraftingProgress();
             setChanged(pLevel, pPos, pState);
-
-            if(hasProgressFinished()) {
+            if (hasProgressFinished()) {
                 craftItem();
                 resetProgress();
             }
         } else {
             resetProgress();
         }
+    }// called once for every tick on the server
+
+    private boolean isOutputSlotEmptyOrReceivable() {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() < this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
     }
 
     private void resetProgress() {
@@ -166,7 +185,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
-                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + 1));
     }
 
     private boolean hasRecipe() {
@@ -199,11 +218,11 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     }
 
     private boolean hasProgressFinished() {
-        return progress >= maxProgress;
+        return this.progress >= this.maxProgress;
     }
 
     private void increaseCraftingProgress() {
-        progress++;
+        this.progress++;
     }
 
     @Nullable

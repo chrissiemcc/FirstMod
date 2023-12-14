@@ -12,7 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -91,6 +90,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         //datagen shouldn't be used when adding custom item properties as it's a unique item
 
         saplingItem(ModBlocks.PINE_SAPLING);
+
+        complexBlock(ModBlocks.GEM_POLISHING_STATION.get());
+    }
+
+    private void complexBlock(Block block) {
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), new ResourceLocation(FirstMod.MOD_ID,
+                "block/" + ForgeRegistries.BLOCKS.getKey(block).getPath()));
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
