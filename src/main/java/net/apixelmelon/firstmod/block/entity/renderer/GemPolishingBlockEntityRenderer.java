@@ -2,6 +2,7 @@ package net.apixelmelon.firstmod.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.apixelmelon.firstmod.block.custom.GemPolishingStationBlock;
 import net.apixelmelon.firstmod.block.entity.GemPolishingStationBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
@@ -26,9 +27,10 @@ public class GemPolishingBlockEntityRenderer implements BlockEntityRenderer<GemP
         ItemStack itemStack = pBlockEntity.getRenderStack();
 
         pPoseStack.pushPose();
-        pPoseStack.translate(0.5f, 0.75, 0.5f); //sets the position of the item being rendered
-        pPoseStack.scale(0.35f, 0.35f, 0.35f); //sets the scale of the item being rendered
-        pPoseStack.mulPose(Axis.XP.rotationDegrees(270)); //rotates the item
+        pPoseStack.translate(0.5f, 0.75, 0.5f); // Sets the position of the item being rendered
+        pPoseStack.scale(0.35f, 0.35f, 0.35f); // Sets the scale of the item being rendered
+        pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(GemPolishingStationBlock.FACING).toYRot())); // Item always faces correct direction
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(270)); // Rotates the item
 
         itemRenderer.renderStatic(itemStack, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
                 OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
