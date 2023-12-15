@@ -93,7 +93,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
                 getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         };
-    }
+    } // Ensures energy is synced between client and server
 
     public GemPolishingStationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.GEM_POLISHING_BE.get(), pPos, pBlockState);
@@ -201,6 +201,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("gem_polishing_station.progress", progress);
+        pTag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
 
         super.saveAdditional(pTag);
     }
