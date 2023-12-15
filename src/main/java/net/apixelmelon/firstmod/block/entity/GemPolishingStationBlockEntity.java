@@ -28,10 +28,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -53,7 +57,8 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0, 1 -> true;
+                case 0 -> true;
+                case 1 -> stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent();
                 case 2 -> false;
                 case 3 -> stack.getItem() == ModItems.CORN.get();
                 default -> super.isItemValid(slot, stack);
@@ -78,12 +83,32 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     // This is where to customise where the inputs and outputs of the block entity are
 
     private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
+    private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
+
 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
 
     private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    private final FluidTank FLUID_TANK = createFluidTank();
+
+    private FluidTank createFluidTank() {
+        return new FluidTank(64000) {
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+                if(!level.isClientSide()) {
+                    level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+                }
+            }
+
+            @Override
+            public boolean isFluidValid(FluidStack stack) {
+                return true;
+            } // Only fluids specified here will be valid
+        };
+    }
 
     private ModEnergyStorage createEnergyStorage() {
         return new ModEnergyStorage(64000, 200) {
@@ -126,6 +151,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         return this.ENERGY_STORAGE;
     }
 
+    public FluidStack getFluid() {
+        return FLUID_TANK.getFluid();
+    }
+
     public ItemStack getRenderStack() {
         if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
             return itemHandler.getStackInSlot(INPUT_SLOT);
@@ -138,6 +167,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if(cap == ForgeCapabilities.ENERGY) {
             return lazyEnergyHandler.cast();
+        }
+
+        if(cap == ForgeCapabilities.FLUID_HANDLER) {
+            return lazyFluidHandler.cast();
         }
 
         if(cap == ForgeCapabilities.ITEM_HANDLER) {
@@ -169,6 +202,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
         lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
+        lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK);
     }
 
     @Override
@@ -176,6 +210,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         super.invalidateCaps();
         lazyItemHandler.invalidate();
         lazyEnergyHandler.invalidate();
+        lazyFluidHandler.invalidate();
     }
 
     public void drops() {
@@ -202,6 +237,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("gem_polishing_station.progress", progress);
         pTag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
+        pTag = FLUID_TANK.writeToNBT(pTag);
 
         super.saveAdditional(pTag);
     }
@@ -212,10 +248,12 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("gem_polishing_station.progress");
         ENERGY_STORAGE.setEnergy(pTag.getInt("energy"));
+        FLUID_TANK.readFromNBT(pTag);
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
         fillUpOnEnergy();
+        fillUpOnFluid();
 
         if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
             increaseCraftingProgress();
@@ -224,12 +262,47 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
 
             if (hasProgressFinished()) {
                 craftItem();
+                extractFluid();
                 resetProgress();
             }
         } else {
             resetProgress();
         }
     } // Called once for every tick on the server
+
+    private void extractFluid() {
+        this.FLUID_TANK.drain(500, IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    private void fillUpOnFluid() {
+        if(hasFluidSourceInSlot(FLUID_INPUT_SLOT)) {
+            transferItemFluidToTank(FLUID_INPUT_SLOT);
+        }
+    }
+
+    private void transferItemFluidToTank(int fluidInputSlot) {
+        this.itemHandler.getStackInSlot(fluidInputSlot).getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).ifPresent(iFluidHandlerItem -> {
+            int drainAmount = Math.min(this.FLUID_TANK.getSpace(), 1000);
+
+            FluidStack stack = iFluidHandlerItem.drain(drainAmount, IFluidHandler.FluidAction.SIMULATE);
+            if(stack.getFluid() == Fluids.WATER) {
+                stack = iFluidHandlerItem.drain(drainAmount, IFluidHandler.FluidAction.EXECUTE);
+                fillTankWithFluid(stack, iFluidHandlerItem.getContainer());
+            }
+        });
+    }
+
+    private void fillTankWithFluid(FluidStack stack, ItemStack container) {
+        this.FLUID_TANK.fill(new FluidStack(stack.getFluid(), stack.getAmount()), IFluidHandler.FluidAction.EXECUTE);
+
+        this.itemHandler.extractItem(FLUID_INPUT_SLOT, 1, false);
+        this.itemHandler.insertItem(FLUID_INPUT_SLOT, container, false);
+    }
+
+    private boolean hasFluidSourceInSlot(int fluidInputSlot) {
+        return this.itemHandler.getStackInSlot(fluidInputSlot).getCount() > 0 &&
+                this.itemHandler.getStackInSlot(fluidInputSlot).getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent();
+    }
 
     private void extractEnergy() {
         this.ENERGY_STORAGE.extractEnergy(100, false);
@@ -274,7 +347,12 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
         return canInsertAmountIntoOutputSlot(result.getCount())
-                && canInsertItemIntoOutputSlot(result.getItem()) && hasEnoughEnergyToCraft();
+                && canInsertItemIntoOutputSlot(result.getItem()) && hasEnoughEnergyToCraft()
+                && hasEnoughFluidToCraft();
+    }
+
+    private boolean hasEnoughFluidToCraft() {
+        return this.FLUID_TANK.getFluidAmount() >= 500;
     }
 
     private boolean hasEnoughEnergyToCraft() {
