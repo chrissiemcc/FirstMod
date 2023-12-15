@@ -1,16 +1,17 @@
 package net.apixelmelon.firstmod.block.entity;
 
-import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.block.custom.GemPolishingStationBlock;
 import net.apixelmelon.firstmod.item.ModItems;
 import net.apixelmelon.firstmod.recipe.GemPolishingRecipe;
 import net.apixelmelon.firstmod.screen.GemPolishingStationMenu;
 import net.apixelmelon.firstmod.util.InventoryDirectionEntry;
 import net.apixelmelon.firstmod.util.InventoryDirectionWrapper;
+import net.apixelmelon.firstmod.util.ModEnergyStorage;
 import net.apixelmelon.firstmod.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +64,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     private static final int INPUT_SLOT = 0;
     private static final int FLUID_INPUT_SLOT = 1;
     private static final int OUTPUT_SLOT = 2;
-    private static final int ENERGY_ITEM_SLOT = 0;
+    private static final int ENERGY_ITEM_SLOT = 3;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
@@ -75,9 +77,23 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
                     new InventoryDirectionEntry(Direction.UP, INPUT_SLOT, true)).directionsMap;
     // This is where to customise where the inputs and outputs of the block entity are
 
+    private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
+
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+
+    private ModEnergyStorage createEnergyStorage() {
+        return new ModEnergyStorage(64000, 200) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        };
+    }
 
     public GemPolishingStationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.GEM_POLISHING_BE.get(), pPos, pBlockState);
@@ -106,6 +122,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         };
     }
 
+    public IEnergyStorage getEnergyStorage() {
+        return this.ENERGY_STORAGE;
+    }
+
     public ItemStack getRenderStack() {
         if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
             return itemHandler.getStackInSlot(INPUT_SLOT);
@@ -116,6 +136,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if(cap == ForgeCapabilities.ENERGY) {
+            return lazyEnergyHandler.cast();
+        }
+
         if(cap == ForgeCapabilities.ITEM_HANDLER) {
             if(side == null) {
                 return lazyItemHandler.cast();
@@ -144,12 +168,14 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyEnergyHandler.invalidate();
     }
 
     public void drops() {
@@ -184,12 +210,17 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("gem_polishing_station.progress");
+        ENERGY_STORAGE.setEnergy(pTag.getInt("energy"));
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
+        fillUpOnEnergy();
+
         if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
             increaseCraftingProgress();
+            extractEnergy();
             setChanged(pLevel, pPos, pState);
+
             if (hasProgressFinished()) {
                 craftItem();
                 resetProgress();
@@ -198,6 +229,21 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
             resetProgress();
         }
     } // Called once for every tick on the server
+
+    private void extractEnergy() {
+        this.ENERGY_STORAGE.extractEnergy(100, false);
+    }
+
+    private void fillUpOnEnergy() {
+        if(hasEnergyItemInSlot(ENERGY_ITEM_SLOT)) {
+            this.ENERGY_STORAGE.receiveEnergy(3200, false);
+        }
+    }
+
+    private boolean hasEnergyItemInSlot(int energyItemSlot) {
+        return !this.itemHandler.getStackInSlot(energyItemSlot).isEmpty() &&
+                this.itemHandler.getStackInSlot(energyItemSlot).getItem() == ModItems.CORN.get();
+    }
 
     private boolean isOutputSlotEmptyOrReceivable() {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
@@ -227,7 +273,11 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
         return canInsertAmountIntoOutputSlot(result.getCount())
-                && canInsertItemIntoOutputSlot(result.getItem());
+                && canInsertItemIntoOutputSlot(result.getItem()) && hasEnoughEnergyToCraft();
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= 100 * maxProgress;
     }
 
     private Optional<GemPolishingRecipe> getCurrentRecipe() {
@@ -265,5 +315,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     @Override
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
     }
 }
