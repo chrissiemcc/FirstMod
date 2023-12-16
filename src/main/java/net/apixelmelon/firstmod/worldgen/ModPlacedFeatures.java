@@ -12,9 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
@@ -22,8 +20,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SAPPHIRE_ORE_PLACED_KEY = registerKey("sapphire_ore_placed");
     public static final ResourceKey<PlacedFeature> NETHER_SAPPHIRE_ORE_PLACED_KEY = registerKey("nether_sapphire_ore_placed");
     public static final ResourceKey<PlacedFeature> END_SAPPHIRE_ORE_PLACED_KEY = registerKey("end_sapphire_ore_placed");
-
     public static final ResourceKey<PlacedFeature> PINE_PLACED_KEY = registerKey("pine_placed");
+    public static final ResourceKey<PlacedFeature> CATMINT_PLACED_KEY = registerKey("catmint_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -48,6 +46,9 @@ public class ModPlacedFeatures {
         //1st number is how many trees will be planted
         //with the chance (2nd number) of getting an extra few trees (3rd number)
         //ModBlocks.(insert sapling).get() should be added at the end to ensure the tree doesn't grow where the sapling could not survive
+
+        register(context, CATMINT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CATMINT_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
