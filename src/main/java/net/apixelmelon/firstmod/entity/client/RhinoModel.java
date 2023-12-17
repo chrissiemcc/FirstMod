@@ -2,7 +2,6 @@ package net.apixelmelon.firstmod.entity.client;// Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.apixelmelon.firstmod.entity.animations.ModAnimationDefinitions;
@@ -12,9 +11,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
-public class RhinoModel<T extends Entity> extends HierarchicalModel<T> {
+public class RhinoModel<T extends RhinoEntity> extends HierarchicalModel<T> {
 	private final ModelPart rhino;
 	private final ModelPart head;
 
@@ -85,13 +83,15 @@ public class RhinoModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(RhinoEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
 		this.animateWalk(ModAnimationDefinitions.RHINO_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((RhinoEntity) entity).idleAnimationState, ModAnimationDefinitions.RHINO_IDLE, ageInTicks, 1f);
-		this.animate(((RhinoEntity) entity).attackAnimationState, ModAnimationDefinitions.RHINO_ATTACK, ageInTicks, 1f);
+
+		this.animate(entity.idleAnimationState, ModAnimationDefinitions.RHINO_IDLE, ageInTicks, 1f);
+		this.animate(entity.attackAnimationState, ModAnimationDefinitions.RHINO_ATTACK, ageInTicks, 1f);
+		this.animate(entity.sitAnimationState, ModAnimationDefinitions.RHINO_SIT, ageInTicks, 1f);
 	}
 
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
