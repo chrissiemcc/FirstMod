@@ -135,6 +135,27 @@ public class RhinoEntity extends Animal {
     } // Ensures that variants remain the same when the world is reloaded
 
     /* END OF VARIANT METHODS */
+    /* SOUNDS METHODS */
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.HOGLIN_AMBIENT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return SoundEvents.RAVAGER_HURT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.DOLPHIN_DEATH;
+    }
+
+    /* END OF SOUNDS METHODS */
 
     @Override
     protected void registerGoals() {
@@ -173,23 +194,5 @@ public class RhinoEntity extends Animal {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.COOKED_BEEF);
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.HOGLIN_AMBIENT;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.RAVAGER_HURT;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.DOLPHIN_DEATH;
     }
 }
