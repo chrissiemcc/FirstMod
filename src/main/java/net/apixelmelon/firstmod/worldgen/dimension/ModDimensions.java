@@ -57,7 +57,7 @@ public class ModDimensions {
         NoiseBasedChunkGenerator wrappedChunkGenerator = new NoiseBasedChunkGenerator(
                 new FixedBiomeSource(biomeRegistry.getOrThrow(ModBiomes.TEST_BIOME)),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.AMPLIFIED));
-        //FixedBiomeSource means the dimension only has one biome
+        // FixedBiomeSource means the dimension only has one biome
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
                 MultiNoiseBiomeSource.createFromList(

@@ -56,6 +56,7 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable{
 
     public final AnimationState sitAnimationState = new AnimationState();
 
+    // If a boss bar is desired
     //private final ServerBossEvent bossEvent =
     //         new ServerBossEvent(Component.literal("Rhino"), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_12);
 
