@@ -83,17 +83,6 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable{
                 .add(Attributes.ATTACK_DAMAGE, 2f);
     }
 
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntities.RHINO.get().create(pLevel);
-    }
-
-    @Override
-    public boolean isFood(ItemStack pStack) {
-        return pStack.is(Items.COOKED_BEEF);
-    }
-
     @Override
     public void tick() {
         super.tick();
@@ -242,7 +231,7 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable{
             }
         }
 
-        if(isTame() && pHand == InteractionHand.MAIN_HAND) {
+        if(isTame() && pHand == InteractionHand.MAIN_HAND && !isFood(itemstack)) {
             if(!pPlayer.isCrouching()) {
                 setRiding(pPlayer);
             } else {
@@ -331,4 +320,18 @@ public class RhinoEntity extends TamableAnimal implements PlayerRideable{
     }
 
     /* END OF RIDEABLE METHODS */
+    /* BREEDING METHODS */
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return ModEntities.RHINO.get().create(pLevel);
+    }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return pStack.is(Items.COOKED_BEEF);
+    }
+
+    /* END OF BREEDING METHODS */
 }
