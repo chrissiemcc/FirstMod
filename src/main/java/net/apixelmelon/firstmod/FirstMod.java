@@ -61,6 +61,7 @@ public class FirstMod {
     public static final String MOD_ID = "firstmod";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
+
     public FirstMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
