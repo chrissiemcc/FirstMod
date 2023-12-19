@@ -6,6 +6,7 @@ import net.apixelmelon.firstmod.block.entity.ModBlockEntities;
 import net.apixelmelon.firstmod.effect.ModEffects;
 import net.apixelmelon.firstmod.enchantment.ModEnchantments;
 import net.apixelmelon.firstmod.entity.ModEntities;
+import net.apixelmelon.firstmod.entity.client.MagicProjectileRenderer;
 import net.apixelmelon.firstmod.entity.client.ModBoatRenderer;
 import net.apixelmelon.firstmod.entity.client.RhinoRenderer;
 import net.apixelmelon.firstmod.fluid.ModFluidTypes;
@@ -136,6 +137,7 @@ public class FirstMod {
             EntityRenderers.register(ModEntities.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));
             EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), pContext -> new ModBoatRenderer(pContext, true));
             EntityRenderers.register(ModEntities.DICE_PROJECTILE.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
 

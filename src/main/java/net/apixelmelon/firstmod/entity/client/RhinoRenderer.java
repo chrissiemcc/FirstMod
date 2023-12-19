@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.apixelmelon.firstmod.FirstMod;
 import net.apixelmelon.firstmod.entity.custom.RhinoEntity;
+import net.apixelmelon.firstmod.entity.layers.ModModelLayers;
 import net.apixelmelon.firstmod.entity.variant.RhinoVariant;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
