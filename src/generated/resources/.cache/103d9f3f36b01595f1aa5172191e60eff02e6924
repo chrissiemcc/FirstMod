@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-18T18:31:31.4154847	Registries
+// 1.20.1	2023-12-23T20:35:03.4445826	Registries
 70e595343c957235fbe2ea350f15a0d089df47af data/firstmod/dimension/pixeldim.json
 e241e971aacde6f4d0236c622c99d6c9caeb981e data/firstmod/dimension_type/pixeldim_type.json
 768129907b25090ff5ee089dc5516ac5ab21d395 data/firstmod/forge/biome_modifier/add_catmint.json
@@ -11,7 +11,7 @@ dbbbadd44b99678890caf7306ad90e81874b8728 data/firstmod/worldgen/biome/test_biome
 c822a878649a4fe9f19fab44fb0ad559d430606c data/firstmod/worldgen/configured_feature/catmint.json
 84e6d59cf3cd46def42b1adeffd59ecdc5b795eb data/firstmod/worldgen/configured_feature/end_sapphire_ore.json
 618a7a8ac1fc2e3892d739404a5bb98064ab82db data/firstmod/worldgen/configured_feature/nether_sapphire_ore.json
-9e5bafebe1c9b6c4e22f04bb51e4a0b5f882e90d data/firstmod/worldgen/configured_feature/pine.json
+226788fb9988d3fc8f608eeeb909cc04d41c3256 data/firstmod/worldgen/configured_feature/pine.json
 81647a5414a11ace9a6aa5cafcb8a243485d8eef data/firstmod/worldgen/configured_feature/sapphire_ore.json
 b8689c2a9d331956277e9242de24660976fb9ee8 data/firstmod/worldgen/placed_feature/catmint_placed.json
 d6879ead52451fc18622d3d7c48c020f7e5944ba data/firstmod/worldgen/placed_feature/end_sapphire_ore_placed.json

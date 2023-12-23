@@ -54,7 +54,8 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(ModBlocks.PINE_LEAVES.get()),
                 new PineFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3), //determines the foliage of the tree
 
-                new TwoLayersFeatureSize(1, 0, 2)).build()); //checks the space around the feature being placed (tree)
+                //new TwoLayersFeatureSize(1, 0, 2)).build()); //checks the space around the feature being placed (tree)
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.END_STONE)).build());
 
         register(context, CATMINT_KEY, Feature.FLOWER,
                 new RandomPatchConfiguration(32, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
