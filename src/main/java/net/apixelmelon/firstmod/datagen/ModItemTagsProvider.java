@@ -29,11 +29,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         this.tag(ItemTags.MUSIC_DISCS)
                 .add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
-        //adds this Mod Item as a music disc
+        // Adds this Mod Item as a music disc
 
         this.tag(ItemTags.CREEPER_DROP_MUSIC_DISCS)
                 .add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
-        //allows the disc to be dropped by creepers
+        // Allows the disc to be dropped by creepers
 
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.PINE_LOG.get().asItem())

@@ -33,5 +33,5 @@ public class SapphireLampBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(CLICKED);
-    }//add every new property to this method
+    }// Add every new property to this method
 }

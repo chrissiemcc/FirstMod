@@ -23,16 +23,16 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         this.add("pine_cone_from_grass", new AddItemModifier(new LootItemCondition[]{
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.PINE_CONE.get()));
-        //35% chance for grass to drop a pine cone
+        // 35% chance for grass to drop a pine cone
         this.add("pine_cone_from_creeper", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/creeper")).build()}, ModItems.PINE_CONE.get()));
-        //100% chance for creepers to drop a pine cone
+        // 100% chance for creepers to drop a pine cone
         this.add("metal_detector_from_jungle_temples", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build()}, ModItems.METAL_DETECTOR.get()));
-        //100% chance for jungle temple chests to have a metal detector
+        // 100% chance for jungle temple chests to have a metal detector
 
         this.add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()}, ModItems.METAL_DETECTOR.get()));
-        //Adds metal detectors to the suspicious sand loot table
+        // Adds metal detectors to the suspicious sand loot table
     }
 }

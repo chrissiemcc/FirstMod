@@ -21,5 +21,5 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
         tag(FluidTags.WATER)
                 .add(ModFluids.SOURCE_SOAP_WATER.get())
                 .add(ModFluids.FLOWING_SOAP_WATER.get());
-    }// adding to the water tag makes the fluid behave like water
+    }// Adding to the water tag makes the fluid behave like water
 }

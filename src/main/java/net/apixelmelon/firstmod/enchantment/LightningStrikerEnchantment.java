@@ -21,7 +21,7 @@ public class LightningStrikerEnchantment extends Enchantment {
             if(pLevel == 1) {
                 EntityType.LIGHTNING_BOLT.spawn(level, null, (Player)null, position,
                         MobSpawnType.TRIGGERED, true, true);
-            } //spawn one lightning bolt
+            } // Spawn one lightning bolt
 
             if(pLevel == 2) {
                 EntityType.LIGHTNING_BOLT.spawn(level, null, (Player)null, position,
@@ -29,7 +29,7 @@ public class LightningStrikerEnchantment extends Enchantment {
 
                 EntityType.LIGHTNING_BOLT.spawn(level, null, (Player)null, position,
                         MobSpawnType.TRIGGERED, true, true);
-            } //spawn two lightning bolts
+            } // Spawn two lightning bolts
         }
 
         super.doPostAttack(pAttacker, pTarget, pLevel);

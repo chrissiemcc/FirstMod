@@ -77,7 +77,7 @@ public class CornCropBlock extends CropBlock {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) &&
                 pLevel.getBlockState(pPos.below(1)).getValue(AGE) == 7);
-    }//the top crop block can only survive if the correct bottom crop block is there
+    }// The top crop block can only survive if the correct bottom crop block is there
 
     @Override
     public void growCrops(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -85,13 +85,13 @@ public class CornCropBlock extends CropBlock {
         int maxAge = this.getMaxAge();
         if(nextAge > maxAge) {
             nextAge = maxAge;
-        }//makes sure bone meal doesn't set the age higher than the max
+        }// Makes sure bone meal doesn't set the age higher than the max
 
         if(this.getAge(pState) == FIRST_STAGE_MAX_AGE && pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR)) {
             pLevel.setBlock(pPos.above(1), this.getStateForAge(nextAge), 2);
         } else {
             pLevel.setBlock(pPos, this.getStateForAge(nextAge - SECOND_STAGE_MAX_AGE), 2);
-        }//makes sure the bottom block of the crop doesn't ever reach max age
+        }// Makes sure the bottom block of the crop doesn't ever reach max age
     }
 
     @Override

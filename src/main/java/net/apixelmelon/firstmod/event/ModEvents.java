@@ -137,13 +137,13 @@ public class ModEvents {
         new ReturnHomeCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
-    }//registers the commands
+    }// Registers the commands
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         event.getEntity().getPersistentData().putIntArray("firstmod.homepos",
                 event.getOriginal().getPersistentData().getIntArray("firstmod.homepos"));
-    }//ensures the home pos data is stored when a player dies
+    }// Ensures the home pos data is stored when a player dies
 
     @SubscribeEvent
     public static void livingDamage(LivingDamageEvent event) {

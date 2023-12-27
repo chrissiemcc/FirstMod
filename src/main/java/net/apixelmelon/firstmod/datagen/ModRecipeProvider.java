@@ -28,7 +28,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         oreBlasting(pWriter, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 0.25f, 200, "sapphire");
         oreSmelting(pWriter, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 0.25f, 100, "sapphire");
-        //Sets the list of items and blocks in SAPPHIRE_SMELTABLES to smelt and blast into sapphires
+        // Sets the list of items and blocks in SAPPHIRE_SMELTABLES to smelt and blast into sapphires
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SAPPHIRE_BLOCK.get())
                 .pattern("SSS")
@@ -37,13 +37,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModItems.SAPPHIRE.get())
                 .unlockedBy(getHasName(ModItems.SAPPHIRE.get()), has(ModItems.SAPPHIRE.get()))//unlocks recipe when the player gets a sapphire (as standard)
                 .save(pWriter);
-        //builds the Sapphire Block recipe from 9 sapphires
+        // Builds the Sapphire Block recipe from 9 sapphires
 
         //ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 9)
         //        .requires(ModBlocks.SAPPHIRE_BLOCK.get())
         //        .unlockedBy(getHasName(ModBlocks.SAPPHIRE_BLOCK.get()), has(ModBlocks.SAPPHIRE_BLOCK.get()))
         //        .save(pWriter);
-        //shapeless recipe
+        // Shapeless recipe
 
         new GemPolishingRecipeBuilder(ModItems.RAW_SAPPHIRE.get(), ModItems.SAPPHIRE.get(), 3)
                 .unlockedBy("has_raw_sapphire", has(ModItems.RAW_SAPPHIRE.get())).save(pWriter);

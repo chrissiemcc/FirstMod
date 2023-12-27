@@ -18,7 +18,7 @@ public class SlimeyEffect extends MobEffect {
             Vec3 initialVec = pLivingEntity.getDeltaMovement();
             Vec3 climbVec = new Vec3(initialVec.x, 0.2D, initialVec.z);
             pLivingEntity.setDeltaMovement(climbVec.x * 0.91D, climbVec.y * 0.98D, climbVec.z * 0.91D);
-        }//spider climb effect
+        }// Spider climb effect
 
         super.applyEffectTick(pLivingEntity, pAmplifier);
     }

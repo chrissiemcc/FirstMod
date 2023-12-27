@@ -87,7 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.RHINO_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         //simpleItem(ModItems.DATA_TABLET);
-        //datagen shouldn't be used when adding custom item properties as it's a unique item
+        // Datagen shouldn't be used when adding custom item properties as it's a unique item
 
         saplingItem(ModBlocks.PINE_SAPLING);
 
@@ -156,7 +156,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(FirstMod.MOD_ID, "item/" + item.getId().getPath()));
-    }//Generates item model
+    }// Generates item model
 
     private void handheldItem(RegistryObject<Item> item) {
         this.withExistingParent(item.getId().getPath(),
@@ -193,7 +193,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         catch(IllegalArgumentException e) {
             this.withExistingParent(FirstMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                     modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
-        }//For stairs, slab, pressure plate and fence gate that require a different .json file
+        }// For stairs, slab, pressure plate and fence gate that require a different .json file
     }
 
     private void simpleBlockItemBlockTexture(RegistryObject<Block> block) {

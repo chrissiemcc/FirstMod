@@ -21,7 +21,7 @@ public class ModFluidTypes {
             new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, WATER_OVERLAY_RL, 0xA1E038D0,
                     new Vector3f(224f / 255f, 56f / 255f, 208f / 255f),
                     FluidType.Properties.create().lightLevel(2).viscosity(5).density(15)));
-    //set the fluid properties
+    // Set the fluid properties
 
     private static RegistryObject<FluidType> registerFluidType(String name, FluidType fluidType) {
         return FLUID_TYPES.register(name, () -> fluidType);

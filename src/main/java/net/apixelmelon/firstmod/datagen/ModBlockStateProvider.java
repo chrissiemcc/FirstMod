@@ -50,7 +50,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.SAPPHIRE_TRAPDOOR.get()), modLoc("block/sapphire_trapdoor"), true,
                 "cutout");
-        //cutout ensures the door texture can be seen through with alpha values
+        // 'cutout' ensures the door texture can be seen through with alpha values
 
         makeStrawberryCrop((StrawberryCropBlock) ModBlocks.STRAWBERRY_CROP.get(), "strawberry_stage", "strawberry_stage");
         makeCornCrop(((CropBlock) ModBlocks.CORN_CROP.get()), "corn_stage_", "corn_stage_");
