@@ -24,6 +24,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_TREE_PINE = registerKey("add_tree_pine");
     public static final ResourceKey<BiomeModifier> ADD_CATMINT = registerKey("add_catmint");
     public static final ResourceKey<BiomeModifier> SPAWN_RHINO = registerKey("spawn_rhino");
+    public static final ResourceKey<BiomeModifier> ADD_SAPPHIRE_GEODE = registerKey("add_sapphire_geode");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -59,6 +60,11 @@ public class ModBiomeModifiers {
                 biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 100, 1, 3))));
         // pWeight defines how likely the mob will spawn in comparison to other mobs
+
+        context.register(ADD_SAPPHIRE_GEODE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SAPPHIRE_GEODE_PLACED_KEY)),
+                GenerationStep.Decoration.LOCAL_MODIFICATIONS));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {
