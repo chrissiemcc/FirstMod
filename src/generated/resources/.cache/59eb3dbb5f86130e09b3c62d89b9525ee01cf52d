@@ -1,5 +1,6 @@
-// 1.20.1	2023-12-08T17:35:11.3274255	Loot Tables
+// 1.20.1	2023-12-31T23:14:30.4641748	Loot Tables
 e5bf39a4f2d4cc8d6789c2b0a9560601070dc037 data/firstmod/loot_tables/blocks/catmint.json
+ce319e4ffa5dbaa747c5ce52b5d7828782c7bd8a data/firstmod/loot_tables/blocks/colored_leaves.json
 8602b10875960acbcdd504626a12364b19582f94 data/firstmod/loot_tables/blocks/corn_crop.json
 156860e01812c521f795be59bf07579a787f7214 data/firstmod/loot_tables/blocks/deepslate_sapphire_ore.json
 29bf48225534afdbb23385f215bebfd24008148a data/firstmod/loot_tables/blocks/end_stone_sapphire_ore.json

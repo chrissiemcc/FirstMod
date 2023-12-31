@@ -79,6 +79,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.PINE_PLANKS);
 
         leavesBlock(ModBlocks.PINE_LEAVES);
+        leavesBlock(ModBlocks.COLORED_LEAVES);
 
         signBlock(((StandingSignBlock) ModBlocks.PINE_SIGN.get()), ((WallSignBlock) ModBlocks.PINE_WALL_SIGN.get()), blockTexture(ModBlocks.PINE_PLANKS.get()));
         hangingSignBlock(ModBlocks.PINE_HANGING_SIGN.get(), ModBlocks.PINE_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.PINE_PLANKS.get()));
