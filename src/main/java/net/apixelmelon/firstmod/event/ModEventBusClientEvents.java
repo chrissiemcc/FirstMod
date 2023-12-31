@@ -32,7 +32,7 @@ public class ModEventBusClientEvents {
     public static void registerColoredBlocks(RegisterColorHandlersEvent.Block event) {
         event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null &&
                 pPos != null ? BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES.get());
-    }
+    } // Set Colored Leaves block to be coloured to the biome
 
     @SubscribeEvent
     public static void registerColoredItems(RegisterColorHandlersEvent.Item event) {
@@ -40,7 +40,7 @@ public class ModEventBusClientEvents {
             BlockState state = ((BlockItem)pStack.getItem()).getBlock().defaultBlockState();
             return event.getBlockColors().getColor(state, null, null, pTintIndex);
         }, ModBlocks.COLORED_LEAVES.get());
-    }
+    } // Colored Leaves block will have colour when in an inventory slot
 
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
