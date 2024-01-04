@@ -11,7 +11,9 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -45,10 +47,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //        .save(pWriter);
         // Shapeless recipe
 
-        new GemPolishingRecipeBuilder(ModItems.RAW_SAPPHIRE.get(), ModItems.SAPPHIRE.get(), 3)
+        new GemPolishingRecipeBuilder(ModItems.RAW_SAPPHIRE.get(), ModItems.SAPPHIRE.get(), 3, 160, 50,
+                new FluidStack(Fluids.WATER, 2000))
                 .unlockedBy("has_raw_sapphire", has(ModItems.RAW_SAPPHIRE.get())).save(pWriter);
 
-        new GemPolishingRecipeBuilder(Items.COAL, Items.DIAMOND, 3)
+        new GemPolishingRecipeBuilder(Items.COAL, Items.DIAMOND, 7, 40, 150,
+                new FluidStack(Fluids.LAVA, 500))
                 .unlockedBy("has_diamond", has(Items.DIAMOND)).save(pWriter);
     }
 
