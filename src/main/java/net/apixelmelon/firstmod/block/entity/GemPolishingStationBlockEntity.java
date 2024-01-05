@@ -251,7 +251,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
         pTag = FLUID_TANK.writeToNBT(pTag);
 
         super.saveAdditional(pTag);
-    }
+    } // Saves the data
 
     @Override
     public void load(CompoundTag pTag) {

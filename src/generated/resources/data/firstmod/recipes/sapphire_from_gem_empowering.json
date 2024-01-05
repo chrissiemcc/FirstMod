@@ -1,5 +1,9 @@
 {
   "type": "firstmod:gem_polishing",
+  "craftTime": 160,
+  "energyAmount": 50,
+  "fluidAmount": 2000,
+  "fluidType": "minecraft:water",
   "ingredients": [
     {
       "item": "firstmod:raw_sapphire"
