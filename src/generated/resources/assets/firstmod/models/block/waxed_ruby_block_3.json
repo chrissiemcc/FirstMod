@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "firstmod:block/waxed_ruby_block_3"
+  }
+}

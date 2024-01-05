@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T23:14:30.4641748	Loot Tables
+// 1.20.1	2024-01-05T16:33:41.1167908	Loot Tables
 e5bf39a4f2d4cc8d6789c2b0a9560601070dc037 data/firstmod/loot_tables/blocks/catmint.json
 ce319e4ffa5dbaa747c5ce52b5d7828782c7bd8a data/firstmod/loot_tables/blocks/colored_leaves.json
 8602b10875960acbcdd504626a12364b19582f94 data/firstmod/loot_tables/blocks/corn_crop.json
@@ -17,6 +17,10 @@ f6ff02f2e899fc223a3c2283e33f4abeb4a97f61 data/firstmod/loot_tables/blocks/pine_w
 0af83b6bc9375b7814bdd0069a5a3dad134a92ce data/firstmod/loot_tables/blocks/pine_wood.json
 14b6f71f6e09a3f0e5b49ce1014699623164c528 data/firstmod/loot_tables/blocks/potted_catmint.json
 21d682d4fcad0d800efb1426663fa732fc349992 data/firstmod/loot_tables/blocks/raw_sapphire_block.json
+2a23fbf3a8be958b421c6200db098f8b7ffbbd13 data/firstmod/loot_tables/blocks/ruby_block.json
+f297683993335cfe76a50c6b2450c34e9d6c735c data/firstmod/loot_tables/blocks/ruby_block_1.json
+35f511600f6608f7d88603d68862026cc02a1086 data/firstmod/loot_tables/blocks/ruby_block_2.json
+b75b65df5d5b3b04b5ce32e554b56217496e7a4d data/firstmod/loot_tables/blocks/ruby_block_3.json
 c5537d66d124cedbdd4d8c8326b5b838eaf0889e data/firstmod/loot_tables/blocks/sapphire_block.json
 961ad3528d4e372638dddafec099c479d78bc52b data/firstmod/loot_tables/blocks/sapphire_button.json
 cb0e465980f191bfa83e21b20d43b8d57936c675 data/firstmod/loot_tables/blocks/sapphire_door.json
@@ -33,3 +37,7 @@ a33face8896d06e6b5c98e661aed43658a358255 data/firstmod/loot_tables/blocks/sapphi
 8bb62a7fe8a7f1a9982aa71ecc4676335ccf9883 data/firstmod/loot_tables/blocks/strawberry_crop.json
 3428275d1990a92a3fad9d7df09a90c5d1e863d6 data/firstmod/loot_tables/blocks/stripped_pine_log.json
 1764310f3aa412dc66e89fb55b8b453beef7fc25 data/firstmod/loot_tables/blocks/stripped_pine_wood.json
+ef31eeee792331f3d93279065a18255784ee4b39 data/firstmod/loot_tables/blocks/waxed_ruby_block.json
+1a2964edad477d60fc65232d1f0dada309ecac2c data/firstmod/loot_tables/blocks/waxed_ruby_block_1.json
+7b5d4df05e251bbe7416491a126ab1ff45d13849 data/firstmod/loot_tables/blocks/waxed_ruby_block_2.json
+bb3e9a2ab34fa12502c873f896b047d8a1bec756 data/firstmod/loot_tables/blocks/waxed_ruby_block_3.json

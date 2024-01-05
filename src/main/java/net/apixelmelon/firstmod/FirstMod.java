@@ -102,8 +102,8 @@ public class FirstMod {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
 
-            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY.get(), 0.35f); //35% chance a strawberry adds to the composter pile
-            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.20f); //20% chance strawberry seeds adds to the composter pile
+            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY.get(), 0.35f); // 35% chance a strawberry adds to the composter pile
+            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.20f); // 20% chance strawberry seeds adds to the composter pile
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
 

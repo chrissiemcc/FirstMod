@@ -82,6 +82,14 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.PINE_SAPLING.get());
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
                         pOutput.accept(ModBlocks.COLORED_LEAVES.get());
+                        pOutput.accept(ModBlocks.RUBY_BLOCK.get());
+                        pOutput.accept(ModBlocks.RUBY_BLOCK_1.get());
+                        pOutput.accept(ModBlocks.RUBY_BLOCK_2.get());
+                        pOutput.accept(ModBlocks.RUBY_BLOCK_3.get());
+                        pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK.get());
+                        pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_1.get());
+                        pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_2.get());
+                        pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_3.get());
                     }))
                     .build());
 

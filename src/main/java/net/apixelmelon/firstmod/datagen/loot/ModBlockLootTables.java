@@ -31,6 +31,31 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SAPPHIRE_BLOCK.get());
         this.dropSelf(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
         this.dropSelf(ModBlocks.SOUND_BLOCK.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_STAIRS.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_BUTTON.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_PRESSURE_PLATE.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_TRAPDOOR.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_FENCE.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_WALL.get());
+        this.dropSelf(ModBlocks.PINE_SAPLING.get());
+        this.dropSelf(ModBlocks.CATMINT.get());
+        this.dropSelf(ModBlocks.GEM_POLISHING_STATION.get());
+        this.dropSelf(ModBlocks.PINE_LOG.get());
+        this.dropSelf(ModBlocks.PINE_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_PINE_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_PINE_LOG.get());
+        this.dropSelf(ModBlocks.PINE_PLANKS.get());
+        this.dropSelf(ModBlocks.COLORED_LEAVES.get());
+        this.dropSelf(ModBlocks.SAPPHIRE_LAMP.get());
+        this.dropSelf(ModBlocks.RUBY_BLOCK.get());
+        this.dropSelf(ModBlocks.RUBY_BLOCK_1.get());
+        this.dropSelf(ModBlocks.RUBY_BLOCK_2.get());
+        this.dropSelf(ModBlocks.RUBY_BLOCK_3.get());
+        this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK.get());
+        this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_1.get());
+        this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_2.get());
+        this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_3.get());
         //sets the block to drop itself
 
         this.add(ModBlocks.SAPPHIRE_ORE.get(),
@@ -42,15 +67,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.END_STONE_SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
         //sets the block to drop what the createCopperLikeOreDrops method decides
-
-        this.dropSelf(ModBlocks.SAPPHIRE_STAIRS.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_BUTTON.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_PRESSURE_PLATE.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_TRAPDOOR.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_FENCE.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_FENCE_GATE.get());
-        this.dropSelf(ModBlocks.SAPPHIRE_WALL.get());
-        this.dropSelf(ModBlocks.PINE_SAPLING.get());
 
         this.add(ModBlocks.SAPPHIRE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.SAPPHIRE_SLAB.get()));
@@ -77,22 +93,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.CORN_CROP.get(), createCropDrops(ModBlocks.CORN_CROP.get(), ModItems.CORN.get(),
                 ModItems.CORN_SEEDS.get(), cornlootitemconditionbuilder));
-
-        this.dropSelf(ModBlocks.CATMINT.get());
         this.add(ModBlocks.POTTED_CATMINT.get(), createPotFlowerItemTable(ModBlocks.CATMINT.get()));
-
-        this.dropSelf(ModBlocks.GEM_POLISHING_STATION.get());
-
-        this.dropSelf(ModBlocks.PINE_LOG.get());
-        this.dropSelf(ModBlocks.PINE_WOOD.get());
-        this.dropSelf(ModBlocks.STRIPPED_PINE_WOOD.get());
-        this.dropSelf(ModBlocks.STRIPPED_PINE_LOG.get());
-        this.dropSelf(ModBlocks.PINE_PLANKS.get());
-        this.dropSelf(ModBlocks.COLORED_LEAVES.get());
-
         this.add(ModBlocks.PINE_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.PINE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
-
         this.add(ModBlocks.PINE_SIGN.get(), block ->
                 createSingleItemTable(ModItems.PINE_SIGN.get()));
         this.add(ModBlocks.PINE_WALL_SIGN.get(), block ->
@@ -101,8 +104,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 createSingleItemTable(ModItems.PINE_HANGING_SIGN.get()));
         this.add(ModBlocks.PINE_WALL_HANGING_SIGN.get(), block ->
                 createSingleItemTable(ModItems.PINE_HANGING_SIGN.get()));
-
-        this.dropSelf(ModBlocks.SAPPHIRE_LAMP.get());
     }
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {

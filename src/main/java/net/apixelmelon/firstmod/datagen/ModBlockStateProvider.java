@@ -28,13 +28,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.SAPPHIRE_BLOCK);
         blockWithItem(ModBlocks.RAW_SAPPHIRE_BLOCK);
-
         blockWithItem(ModBlocks.SAPPHIRE_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
         blockWithItem(ModBlocks.NETHER_SAPPHIRE_ORE);
         blockWithItem(ModBlocks.END_STONE_SAPPHIRE_ORE);
-
         blockWithItem(ModBlocks.SOUND_BLOCK);
+        blockWithItem(ModBlocks.PINE_PLANKS);
+        blockWithItem(ModBlocks.MOD_PORTAL);
+        blockWithItem(ModBlocks.RUBY_BLOCK);
+        blockWithItem(ModBlocks.RUBY_BLOCK_1);
+        blockWithItem(ModBlocks.RUBY_BLOCK_2);
+        blockWithItem(ModBlocks.RUBY_BLOCK_3);
+        blockWithItem(ModBlocks.WAXED_RUBY_BLOCK);
+        blockWithItem(ModBlocks.WAXED_RUBY_BLOCK_1);
+        blockWithItem(ModBlocks.WAXED_RUBY_BLOCK_2);
+        blockWithItem(ModBlocks.WAXED_RUBY_BLOCK_3);
 
         stairsBlock(((StairBlock) ModBlocks.SAPPHIRE_STAIRS.get()), blockTexture(ModBlocks.SAPPHIRE_BLOCK.get()));
         slabBlock(((SlabBlock) ModBlocks.SAPPHIRE_SLAB.get()), blockTexture(ModBlocks.SAPPHIRE_BLOCK.get()), blockTexture(ModBlocks.SAPPHIRE_BLOCK.get()));
@@ -76,8 +84,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.STRIPPED_PINE_LOG);
         blockItem(ModBlocks.STRIPPED_PINE_WOOD);
 
-        blockWithItem(ModBlocks.PINE_PLANKS);
-
         leavesBlock(ModBlocks.PINE_LEAVES);
         leavesBlock(ModBlocks.COLORED_LEAVES);
 
@@ -85,8 +91,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         hangingSignBlock(ModBlocks.PINE_HANGING_SIGN.get(), ModBlocks.PINE_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.PINE_PLANKS.get()));
 
         saplingBlock(ModBlocks.PINE_SAPLING);
-
-        blockWithItem(ModBlocks.MOD_PORTAL);
 
         customLamp();
     }
