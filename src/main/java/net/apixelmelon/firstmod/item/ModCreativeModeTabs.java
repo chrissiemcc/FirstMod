@@ -90,6 +90,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_1.get());
                         pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_2.get());
                         pOutput.accept(ModBlocks.WAXED_RUBY_BLOCK_3.get());
+                        pOutput.accept(ModBlocks.APIXELMELON_FURNACE_BLOCK.get());
                     }))
                     .build());
 

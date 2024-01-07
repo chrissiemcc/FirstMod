@@ -21,6 +21,7 @@ import net.apixelmelon.firstmod.potion.BetterBrewingRecipe;
 import net.apixelmelon.firstmod.potion.ModPotions;
 import net.apixelmelon.firstmod.recipe.ModRecipes;
 import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
+import net.apixelmelon.firstmod.screen.APixelMelonFurnaceScreen;
 import net.apixelmelon.firstmod.screen.ModMenuTypes;
 import net.apixelmelon.firstmod.sound.ModSounds;
 import net.apixelmelon.firstmod.util.ModWoodTypes;
@@ -140,6 +141,7 @@ public class FirstMod {
             EntityRenderers.register(ModEntities.MAGIC_PROJECTILE.get(), MagicProjectileRenderer::new);
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
+            MenuScreens.register(ModMenuTypes.APIXELMELON_FURNACE_MENU.get(), APixelMelonFurnaceScreen::new);
 
             event.enqueueWork(() -> {
                 ModItemProperties.addCustomItemProperties();

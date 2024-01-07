@@ -56,6 +56,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_1.get());
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_2.get());
         this.dropSelf(ModBlocks.WAXED_RUBY_BLOCK_3.get());
+        this.dropSelf(ModBlocks.APIXELMELON_FURNACE_BLOCK.get());
         //sets the block to drop itself
 
         this.add(ModBlocks.SAPPHIRE_ORE.get(),

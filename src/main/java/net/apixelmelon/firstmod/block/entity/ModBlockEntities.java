@@ -27,6 +27,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
                             ModBlocks.PINE_HANGING_SIGN.get(), ModBlocks.PINE_WALL_HANGING_SIGN.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<APixelMelonFurnaceBlockEntity>> APIXELMELON_FURNACE_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("apixelmelon_furnace_block_entity", () ->
+                    BlockEntityType.Builder.of(APixelMelonFurnaceBlockEntity::new,
+                            ModBlocks.APIXELMELON_FURNACE_BLOCK.get()).build(null));
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

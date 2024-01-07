@@ -36,6 +36,14 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> RAW_SAPPHIRE_BLOCK = registerBlock("raw_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> WAXED_RUBY_BLOCK = registerBlock("waxed_ruby_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_1 = registerBlock("waxed_ruby_block_1",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_2 = registerBlock("waxed_ruby_block_2",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_3 = registerBlock("waxed_ruby_block_3",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<Block> SAPPHIRE_ORE = registerBlock("sapphire_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
@@ -57,25 +65,30 @@ public class ModBlocks {
     public static final RegistryObject<Block> SAPPHIRE_STAIRS = registerBlock("sapphire_stairs",
             () -> new StairBlock(() -> ModBlocks.SAPPHIRE_BLOCK.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+
     public static final RegistryObject<Block> SAPPHIRE_SLAB = registerBlock("sapphire_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
 
     public static final RegistryObject<Block> SAPPHIRE_BUTTON = registerBlock("sapphire_button",
             () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).sound(SoundType.AMETHYST),
                     BlockSetType.IRON, 10, true));
+
     public static final RegistryObject<Block> SAPPHIRE_PRESSURE_PLATE = registerBlock("sapphire_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST),
                     BlockSetType.IRON));
 
     public static final RegistryObject<Block> SAPPHIRE_FENCE = registerBlock("sapphire_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+
     public static final RegistryObject<Block> SAPPHIRE_FENCE_GATE = registerBlock("sapphire_fence_gate",
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST), SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
+
     public static final RegistryObject<Block> SAPPHIRE_WALL = registerBlock("sapphire_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
 
     public static final RegistryObject<Block> SAPPHIRE_DOOR = registerBlock("sapphire_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
+
     public static final RegistryObject<Block> SAPPHIRE_TRAPDOOR = registerBlock("sapphire_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
     // .noOcclusion() prevents x-ray effect with doors transparent pixels
@@ -89,6 +102,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CATMINT = registerBlock("catmint",
             () -> new FlowerBlock(() -> MobEffects.LUCK, 5,
                     BlockBehaviour.Properties.copy(Blocks.ALLIUM).noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> POTTED_CATMINT = BLOCKS.register("potted_catmint",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.CATMINT,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
@@ -197,14 +211,8 @@ public class ModBlocks {
             () -> new DegradableRubyBlock(GemDegradable.GemDegradationLevel.DEGRADED,
                     BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static final RegistryObject<Block> WAXED_RUBY_BLOCK = registerBlock("waxed_ruby_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_1 = registerBlock("waxed_ruby_block_1",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_2 = registerBlock("waxed_ruby_block_2",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> WAXED_RUBY_BLOCK_3 = registerBlock("waxed_ruby_block_3",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> APIXELMELON_FURNACE_BLOCK = registerBlock("apixelmelon_furnace",
+            () -> new APixelMelonFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

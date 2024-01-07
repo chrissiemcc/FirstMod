@@ -6,7 +6,9 @@ import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.apixelmelon.firstmod.FirstMod;
+import net.apixelmelon.firstmod.recipe.APixelMelonFurnaceRecipe;
 import net.apixelmelon.firstmod.recipe.GemPolishingRecipe;
+import net.apixelmelon.firstmod.screen.APixelMelonFurnaceScreen;
 import net.apixelmelon.firstmod.screen.GemPolishingStationScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -24,6 +26,9 @@ public class JEIFirstModPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new GemPolishingCategory(registration.getJeiHelpers().getGuiHelper()));
+
+        registration.addRecipeCategories(new APixelMelonFurnaceRecipeCategory(
+                registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -32,11 +37,17 @@ public class JEIFirstModPlugin implements IModPlugin {
 
         List<GemPolishingRecipe> polishingRecipes = recipeManager.getAllRecipesFor(GemPolishingRecipe.Type.INSTANCE);
         registration.addRecipes(GemPolishingCategory.GEM_POLISHING_TYPE, polishingRecipes);
+
+        List<APixelMelonFurnaceRecipe> apixelmelonFurnaceRecipes = recipeManager.getAllRecipesFor(APixelMelonFurnaceRecipe.Type.INSTANCE);
+        registration.addRecipes(APixelMelonFurnaceRecipeCategory.APIXELMELON_FURNACE_TYPE, apixelmelonFurnaceRecipes);
     }
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(GemPolishingStationScreen.class, 60, 30, 20, 30,
                 GemPolishingCategory.GEM_POLISHING_TYPE);
+
+        registration.addRecipeClickArea(APixelMelonFurnaceScreen.class, 60, 30, 20, 30,
+                APixelMelonFurnaceRecipeCategory.APIXELMELON_FURNACE_TYPE);
     }
 }
